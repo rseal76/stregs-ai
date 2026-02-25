@@ -145,6 +145,40 @@ const REGULATIONS: Record<string, object> = {
     source: { url: 'https://www.brightonco.gov/business', type: 'City Website', lastVerified: 'February 2026' },
     pending: null,
   },
+  'adams county unincorporated': {
+    jurisdiction: 'Adams County (Unincorporated)',
+    status: 'conditional',
+    summary: "This address is in unincorporated Adams County — NOT within any city limits. Denver, Arvada, or other city STR laws do NOT apply here. Adams County requires a Home Occupation permit for STR operation. No primary residence requirement. The county has fewer restrictions than Denver proper, but you must still obtain county approval.",
+    details: {
+      permitRequired: true, permitFeeAnnual: 100, primaryResidenceRequired: false,
+      ownerOccupiedRequired: false, maxDaysPerYear: null, licenseRequired: true,
+      inspectionRequired: false, insuranceRequired: false, noiseOrdinanceApplicable: true,
+      parkingRequirements: 'Standard county requirements apply.',
+      occupancyLimits: null,
+      enforcementBody: 'Adams County Community & Economic Development',
+      enforcementUrl: 'https://www.adcogov.org/community-economic-development',
+    },
+    source: { url: 'https://www.adcogov.org/community-economic-development', type: 'County Website', lastVerified: 'February 2026' },
+    pending: null,
+    splitJurisdiction: false,
+  },
+  // Split-jurisdiction placeholder — shown when a ZIP straddles city/county lines
+  'split jurisdiction': {
+    jurisdiction: 'Multiple Jurisdictions — Verify Your Parcel',
+    status: 'conditional',
+    summary: "⚠️ This address is in a ZIP code that straddles two or more jurisdictions. Some parcels here fall under city regulations; others are in unincorporated county land with different rules entirely. You must verify which jurisdiction applies to your specific parcel before assuming any set of regulations applies.",
+    details: {
+      permitRequired: null, permitFeeAnnual: null, primaryResidenceRequired: null,
+      ownerOccupiedRequired: null, maxDaysPerYear: null, licenseRequired: null,
+      inspectionRequired: null, insuranceRequired: null, noiseOrdinanceApplicable: null,
+      parkingRequirements: null, occupancyLimits: null,
+      enforcementBody: 'Check with your county assessor to confirm jurisdiction',
+      enforcementUrl: 'https://www.adcogov.org/assessor',
+    },
+    source: { url: 'https://www.adcogov.org/assessor', type: 'County Website', lastVerified: 'February 2026' },
+    pending: "Precise boundary data (PostGIS) coming soon — will auto-detect your jurisdiction from coordinates.",
+    splitJurisdiction: true,
+  },
   'commerce city': {
     jurisdiction: 'City of Commerce City',
     status: 'allowed',
@@ -162,12 +196,36 @@ const REGULATIONS: Record<string, object> = {
   },
 };
 
+// ── Known split-jurisdiction ZIP codes ────────────────────────────────────
+// These ZIPs straddle city limits and unincorporated county land.
+// We CANNOT reliably assign a single jurisdiction without PostGIS parcel data.
+// Key example: 80221 covers both Denver and unincorporated Adams County —
+// 7801 Zuni St (80221) looks like Denver but is actually Adams County unincorporated.
+const SPLIT_ZIPS: Record<number, string> = {
+  80221: 'Denver/unincorporated Adams County',   // ← Zuni St case
+  80030: 'Westminster/unincorporated Adams County',
+  80031: 'Westminster/Jefferson County',
+  80234: 'Westminster/unincorporated Adams County',
+  80229: 'Thornton/unincorporated Adams County',
+  80003: 'Arvada/Westminster',
+  80260: 'Thornton/unincorporated Adams County',
+};
+
 // ── Detect jurisdiction from address string ────────────────────────────────
-// TODO: replace with real geocoding (Google Maps API) + PostGIS boundary lookup
+// TODO: Replace with Google Maps Geocoding API → lat/lng →
+//       Supabase PostGIS ST_Contains(boundary, ST_Point(lng, lat)) for precision.
+//       String matching cannot handle parcel-level edge cases like Zuni St (80221).
 function detectJurisdiction(address: string): string | null {
   const lower = address.toLowerCase();
-  
-  // Order matters — check more specific before generic
+
+  // Check for split ZIP first — these must be flagged before city-name matching
+  const zipMatch = lower.match(/\b(80\d{3})\b/);
+  if (zipMatch) {
+    const zip = parseInt(zipMatch[1]);
+    if (SPLIT_ZIPS[zip]) return 'split jurisdiction';
+  }
+
+  // City name matching — order matters (specific before generic)
   if (lower.includes('commerce city')) return 'commerce city';
   if (lower.includes('arvada')) return 'arvada';
   if (lower.includes('lakewood')) return 'lakewood';
@@ -177,22 +235,20 @@ function detectJurisdiction(address: string): string | null {
   if (lower.includes('englewood')) return 'englewood';
   if (lower.includes('thornton')) return 'thornton';
   if (lower.includes('brighton')) return 'brighton';
-  if (lower.includes('denver') || lower.includes(', co 802') || lower.includes(', colorado')) return 'denver';
-  
-  // ZIP code detection for Denver metro
-  const zipMatch = lower.match(/\b(802\d{2})\b/);
+  if (lower.includes('denver')) return 'denver';
+
+  // ZIP-only fallback (non-split ZIPs)
   if (zipMatch) {
     const zip = parseInt(zipMatch[1]);
-    if ([80202, 80203, 80204, 80205, 80206, 80207, 80209, 80210, 80211, 80212, 80214, 80216, 80218, 80219, 80220, 80221, 80222, 80223, 80224, 80226, 80227, 80228, 80229, 80230, 80231, 80232, 80236, 80237, 80238, 80239, 80246, 80247, 80249, 80264].includes(zip)) return 'denver';
-    if ([80002, 80003, 80004, 80005, 80007].includes(zip)) return 'arvada';
-    if ([80214, 80215, 80226, 80227, 80228, 80232].includes(zip)) return 'lakewood';
-    if ([80030, 80031, 80234].includes(zip)) return 'westminster';
-    if ([80120, 80121, 80122, 80123, 80128, 80129].includes(zip)) return 'littleton';
-    if ([80010, 80011, 80012, 80013, 80014, 80015, 80016, 80017, 80018, 80019].includes(zip)) return 'aurora';
-    if ([80110, 80111, 80112, 80113].includes(zip)) return 'englewood';
-    if ([80229, 80233, 80241, 80260].includes(zip)) return 'thornton';
-    if ([80601, 80602, 80603].includes(zip)) return 'brighton';
-    if ([80022, 80037, 80040].includes(zip)) return 'commerce city';
+    if ([80202,80203,80204,80205,80206,80207,80209,80210,80211,80212,80216,80218,80219,80220,80222,80223,80224,80226,80227,80228,80230,80231,80232,80236,80237,80238,80239,80246,80247,80249,80264].includes(zip)) return 'denver';
+    if ([80002,80004,80005,80007].includes(zip)) return 'arvada';
+    if ([80214,80215].includes(zip)) return 'lakewood';
+    if ([80120,80121,80122,80123,80128,80129].includes(zip)) return 'littleton';
+    if ([80010,80011,80012,80013,80014,80015,80016,80017,80018,80019].includes(zip)) return 'aurora';
+    if ([80110,80111,80112,80113].includes(zip)) return 'englewood';
+    if ([80233,80241].includes(zip)) return 'thornton';
+    if ([80601,80602,80603].includes(zip)) return 'brighton';
+    if ([80022,80037,80040].includes(zip)) return 'commerce city';
   }
 
   return null;

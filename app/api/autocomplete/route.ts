@@ -20,17 +20,20 @@ export async function GET(request: NextRequest) {
 
     const data = await res.json();
 
+    // Extract house number from user's query (e.g. "7801" from "7801 zuni st")
+    const houseNumberMatch = q.trim().match(/^(\d+)\s+/);
+    const inputHouseNumber = houseNumberMatch ? houseNumberMatch[1] : null;
+
     const suggestions = data
       .filter((r: { address?: { state?: string } }) => r.address?.state === 'Colorado')
-      .map((r: { display_name?: string; address?: { house_number?: string; road?: string; city?: string; town?: string; county?: string; postcode?: string; state?: string } }) => {
+      .map((r: { display_name?: string; address?: { house_number?: string; road?: string; city?: string; town?: string; village?: string; county?: string; postcode?: string; state?: string } }) => {
         const a = r.address || {};
-        // Build a clean US-style address
-        const parts = [
-          a.house_number && a.road ? `${a.house_number} ${a.road}` : a.road,
-          a.city || a.town,
-          a.state,
-          a.postcode,
-        ].filter(Boolean);
+        // Use house number from Nominatim if available, otherwise use the one from user input
+        const houseNum = a.house_number || inputHouseNumber || '';
+        const street = a.road || '';
+        const streetWithNum = houseNum && street ? `${houseNum} ${street}` : (street || '');
+        const city = a.city || a.town || a.village || '';
+        const parts = [streetWithNum, city, a.state, a.postcode].filter(Boolean);
         return parts.join(', ');
       })
       .filter((s: string) => s.length > 0)

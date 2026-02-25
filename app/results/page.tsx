@@ -8,6 +8,7 @@ interface RegulationResult {
   jurisdiction: string;
   status: 'allowed' | 'conditional' | 'not_allowed';
   summary: string;
+  splitJurisdiction?: boolean;
   details: {
     permitRequired: boolean;
     permitFeeAnnual: number | null;
@@ -241,6 +242,23 @@ function ResultsContent() {
           </button>
         </div>
       </div>
+
+      {/* Split jurisdiction warning — shown before anything else */}
+      {result.splitJurisdiction && (
+        <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 mb-6">
+          <p className="text-yellow-400 font-semibold text-sm mb-1">⚠️ Jurisdiction Cannot Be Confirmed From Address Alone</p>
+          <p className="text-yellow-200/70 text-xs leading-relaxed">
+            This ZIP code straddles multiple jurisdictions. Your parcel may fall under city regulations <em>or</em> unincorporated county rules — and those are completely different laws. Do not rely on city regulations until you confirm which jurisdiction your parcel actually sits in.
+          </p>
+          <a
+            href="https://www.adcogov.org/assessor"
+            target="_blank" rel="noopener noreferrer"
+            className="inline-block mt-2 text-xs text-yellow-400 underline hover:text-yellow-300"
+          >
+            Look up your parcel on the county assessor site →
+          </a>
+        </div>
+      )}
 
       {/* Status */}
       <div className="mb-6">
