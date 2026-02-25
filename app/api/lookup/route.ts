@@ -254,6 +254,81 @@ function detectJurisdiction(address: string): string | null {
   return null;
 }
 
+// ── Census Geocoder — free, no API key, returns real jurisdiction ──────────
+// Returns { county, city, lat, lng } or null if not found
+async function geocodeWithCensus(address: string): Promise<{
+  county: string | null;
+  city: string | null;
+  lat: number | null;
+  lng: number | null;
+} | null> {
+  try {
+    // Parse address parts for Census API
+    const parts = address.split(',').map(s => s.trim());
+    const street = parts[0] || address;
+    const cityState = parts[1] || '';
+    const stateZip = parts[2] || parts[1] || '';
+    const zipMatch = address.match(/\b(\d{5})\b/);
+    const zip = zipMatch ? zipMatch[1] : '';
+
+    const params = new URLSearchParams({
+      street,
+      benchmark: 'Public_AR_Current',
+      vintage: 'Current_Current',
+      format: 'json',
+      layers: '86,61', // 86=Incorporated Places, 61=Counties
+    });
+    if (cityState.match(/[A-Z]{2}/i)) params.set('state', 'CO');
+    if (zip) params.set('zip', zip);
+
+    const url = `https://geocoding.geo.census.gov/geocoder/geographies/address?${params}`;
+    const res = await fetch(url, { next: { revalidate: 3600 } });
+    const data = await res.json();
+
+    const match = data?.result?.addressMatches?.[0];
+    if (!match) return null;
+
+    const counties = match.geographies?.['Counties'] || [];
+    const places = match.geographies?.['Incorporated Places'] || [];
+
+    return {
+      county: counties[0]?.NAME?.replace(' County', '').toLowerCase() || null,
+      city: places[0]?.NAME?.toLowerCase() || null, // null = unincorporated!
+      lat: match.coordinates?.y || null,
+      lng: match.coordinates?.x || null,
+    };
+  } catch {
+    return null;
+  }
+}
+
+// Map Census county/city names to our jurisdiction keys
+function censusToJurisdiction(city: string | null, county: string | null): string | null {
+  // If there's an incorporated city, use it
+  if (city) {
+    if (city.includes('commerce city')) return 'commerce city';
+    if (city.includes('arvada')) return 'arvada';
+    if (city.includes('lakewood')) return 'lakewood';
+    if (city.includes('westminster')) return 'westminster';
+    if (city.includes('littleton')) return 'littleton';
+    if (city.includes('aurora')) return 'aurora';
+    if (city.includes('englewood')) return 'englewood';
+    if (city.includes('thornton')) return 'thornton';
+    if (city.includes('brighton')) return 'brighton';
+    if (city.includes('denver')) return 'denver';
+  }
+
+  // No incorporated place = unincorporated county land
+  if (!city && county) {
+    if (county.includes('adams')) return 'adams county unincorporated';
+    if (county.includes('jefferson')) return 'jefferson county unincorporated';
+    if (county.includes('arapahoe')) return 'arapahoe county unincorporated';
+    if (county.includes('douglas')) return 'douglas county unincorporated';
+  }
+
+  return null;
+}
+
 // ── Route handler ──────────────────────────────────────────────────────────
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => ({}));
@@ -263,7 +338,21 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'address_required' }, { status: 400 });
   }
 
-  const jurisdiction = detectJurisdiction(address);
+  // Step 1: Try Census Geocoder for real jurisdiction detection
+  let jurisdiction: string | null = null;
+  let geocodeResult = null;
+
+  geocodeResult = await geocodeWithCensus(address);
+  if (geocodeResult) {
+    jurisdiction = censusToJurisdiction(geocodeResult.city, geocodeResult.county);
+    console.log(`[lookup] Census geocode: city="${geocodeResult.city}" county="${geocodeResult.county}" → ${jurisdiction}`);
+  }
+
+  // Step 2: Fall back to string matching if Census geocoder fails
+  if (!jurisdiction) {
+    jurisdiction = detectJurisdiction(address);
+    console.log(`[lookup] String fallback → ${jurisdiction}`);
+  }
 
   if (!jurisdiction) {
     return NextResponse.json({
@@ -274,7 +363,19 @@ export async function POST(request: NextRequest) {
   }
 
   const data = REGULATIONS[jurisdiction];
-  console.log(`[lookup] ${address} → ${jurisdiction}`);
+  if (!data) {
+    return NextResponse.json({
+      address,
+      found: false,
+      message: `${jurisdiction} regulations are coming soon. We're expanding coverage rapidly.`,
+    }, { status: 404 });
+  }
 
-  return NextResponse.json({ address, found: true, ...data });
+  console.log(`[lookup] ${address} → ${jurisdiction}`);
+  return NextResponse.json({
+    address,
+    found: true,
+    geocoded: geocodeResult ? { lat: geocodeResult.lat, lng: geocodeResult.lng } : null,
+    ...data,
+  });
 }
