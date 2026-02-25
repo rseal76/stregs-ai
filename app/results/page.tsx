@@ -334,10 +334,20 @@ function ResultsContent() {
           <p className="text-green-400 text-sm">✅ You&apos;re on the list. We&apos;ll notify you if anything changes.</p>
         ) : (
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              setAlertSent(true);
-              // TODO: wire up to email capture API
+              if (!email) return;
+              setAlertSent(true); // optimistic UI
+              fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  email,
+                  source: 'change_alert',
+                  address,
+                  jurisdiction: result.jurisdiction,
+                }),
+              }).catch(() => {/* silent fail — UI already confirmed */});
             }}
             className="flex gap-3"
           >
