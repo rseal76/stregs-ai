@@ -1,0 +1,39 @@
+{
+  "jurisdiction": "Denver",
+  "type": "city",
+  "state": "CO",
+  "parent_county": "Denver County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": 25,
+    "permit_fee_one_time": null,
+    "primary_residence_required": true,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": "No requirements beyond standard Denver code.",
+    "occupancy_limits": "Maximum 2 guests per bedroom.",
+    "enforcement_body": "Denver Department of Excise and Licenses",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.denvergov.org/Government/Departments/Excise-and-Licenses/Licenses-and-Permits/Short-Term-Rentals",
+    "notes": "Denver requires a Short-Term Rental license. The property must be your primary residence — where you live at least 183 days per year. The annual license fee is $25 for owner-occupied units or $100 for hosted rentals where the owner does not reside. There is no citywide cap on the number of nights you can rent once licensed.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.denvergov.org/Government/Departments/Excise-and-Licenses/Licenses-and-Permits/Short-Term-Rentals",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": true,
+    "human_verified_date": "2026-02-24",
+    "last_verified": "2026-02-24"
+  }
+}
