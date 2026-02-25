@@ -115,12 +115,22 @@ function ResultsContent() {
   const [alertSent, setAlertSent] = useState(false);
 
   useEffect(() => {
-    // Simulate API call — TODO: wire up to /api/lookup
-    const timer = setTimeout(() => {
-      setResult(MOCK_DENVER);
-      setLoading(false);
-    }, 900);
-    return () => clearTimeout(timer);
+    if (!address) { setLoading(false); return; }
+    fetch('/api/lookup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ address }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.found === false) {
+          setResult(null);
+        } else {
+          setResult(data as RegulationResult);
+        }
+        setLoading(false);
+      })
+      .catch(() => { setResult(null); setLoading(false); });
   }, [address]);
 
   if (loading) {
