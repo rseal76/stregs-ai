@@ -24,3 +24,35 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ── Print styles — clean PDF output ── */
+@media print {
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body, main, html {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  /* Hide chrome */
+  nav, footer, button, form { display: none !important; }
+
+  /* Reset dark cards to white */
+  .bg-\[#0f172a\], .bg-white\/5, .bg-white\/3 {
+    background: #ffffff !important;
+    border-color: #e5e7eb !important;
+  }
+
+  /* Make text readable */
+  .text-white { color: #111111 !important; }
+  .text-slate-400, .text-slate-300, .text-slate-500 { color: #4b5563 !important; }
+  .text-orange-400 { color: #c2410c !important; }
+  .text-blue-400 { color: #1d4ed8 !important; }
+  .text-green-400 { color: #15803d !important; }
+
+  /* Page setup */
+  @page {
+    margin: 1.5cm;
+    size: A4;
+  }
+}
