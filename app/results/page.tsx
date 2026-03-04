@@ -336,6 +336,24 @@ function ResultsContent() {
         </div>
       )}
 
+      {/* Upgrade CTA */}
+      <div className="bg-orange-500/10 border border-orange-500/30 rounded-xl p-5 mb-4">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h2 className="text-sm font-semibold text-white mb-1">🔒 Want the full report?</h2>
+            <p className="text-xs text-slate-400">
+              Unlock permit application links, step-by-step compliance plans, and change alerts for $19/mo.
+            </p>
+          </div>
+          <a
+            href="/pricing"
+            className="shrink-0 bg-orange-500 hover:bg-orange-400 text-white text-xs font-semibold rounded-lg px-4 py-2 transition-colors whitespace-nowrap"
+          >
+            See plans →
+          </a>
+        </div>
+      </div>
+
       {/* Change alerts CTA */}
       <div className="bg-white/5 border border-white/10 rounded-xl p-5">
         <h2 className="text-sm font-semibold text-white mb-1">Get notified when these regulations change</h2>

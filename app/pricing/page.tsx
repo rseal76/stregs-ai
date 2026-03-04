@@ -5,95 +5,90 @@ const TIERS = [
     name: 'Free',
     price: '$0',
     period: 'forever',
-    description: 'Try it out',
+    description: 'Try it out — no card required',
     features: [
-      '3 address lookups/month',
-      'Basic regulation summary',
-      'Source citations',
+      'STR verdict (Allowed / Conditional / Banned)',
+      'Permit required Y/N',
+      'Jurisdiction identified',
+      'Unlimited searches',
     ],
-    cta: 'Get started',
+    locked: [
+      'Full regulation details',
+      'Permit fees & license requirements',
+      'Enforcement contacts',
+      'Permit application links',
+    ],
+    cta: 'Start free',
     href: '/',
     highlighted: false,
+    stripe: null,
   },
   {
-    name: 'Host',
-    price: '$99',
-    period: '/year',
-    description: 'For active STR hosts',
+    name: 'Standard',
+    price: '$19',
+    period: '/month',
+    description: 'Everything you need to evaluate a property',
     features: [
+      'Everything in Free',
+      'Full regulation breakdown',
+      'Permit fees & renewal info',
+      'Primary residence & occupancy rules',
+      'Enforcement body & contacts',
       'Unlimited lookups',
-      'Change alerts for up to 5 properties',
-      'Email notifications on regulation changes',
-      'Full detail breakdown',
-      'Enforcement contact info',
     ],
-    cta: 'Get Host Plan',
-    href: '#',
-    highlighted: true,
+    locked: [
+      'Direct permit application links',
+      'Step-by-step action plan',
+      'Regulation change alerts',
+    ],
+    cta: 'Get Standard',
+    href: '/api/stripe/checkout?tier=standard',
+    highlighted: false,
+    stripe: 'standard',
   },
   {
-    name: 'Investor',
-    price: '$199',
-    period: '/year',
-    description: 'For multi-property investors',
+    name: 'Pro',
+    price: '$49',
+    period: '/month',
+    description: 'For serious investors & property managers',
     features: [
-      'Everything in Host',
-      'Change alerts for up to 25 properties',
-      'CSV data export',
-      'Portfolio monitoring dashboard',
+      'Everything in Standard',
+      'Direct permit application links',
+      'Step-by-step compliance action plan',
+      'Regulation change alerts',
       'Priority support',
     ],
-    cta: 'Get Investor Plan',
-    href: '#',
-    highlighted: false,
-  },
-  {
-    name: 'Pro / PM',
-    price: '$499',
-    period: '/year',
-    description: 'For property managers & analysts',
-    features: [
-      'Everything in Investor',
-      'Unlimited properties',
-      'Early API access',
-      'Bulk lookup via CSV upload',
-      'Dedicated account support',
-    ],
-    cta: 'Get Pro Plan',
-    href: '#',
-    highlighted: false,
+    locked: [],
+    cta: 'Get Pro',
+    href: '/api/stripe/checkout?tier=pro',
+    highlighted: true,
+    stripe: 'pro',
   },
 ];
 
 export default function PricingPage() {
   return (
     <main className="min-h-screen bg-[#0f172a] text-white">
-      <nav className="px-6 py-4 border-b border-white/5">
+      <nav className="px-6 py-4 border-b border-white/5 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold tracking-tight">
           ST<span className="text-orange-400">Regs</span>.ai
         </Link>
+        <Link href="/" className="text-sm text-slate-400 hover:text-white transition-colors">
+          ← Back to search
+        </Link>
       </nav>
 
-      {/* Founding member banner */}
-      <div className="bg-orange-500/10 border-b border-orange-500/20 px-4 py-3 text-center">
-        <p className="text-sm text-orange-300">
-          🎉 <strong>Founding Member Offer:</strong> First 50 sign-ups get the Host Plan for{' '}
-          <strong>$49/year</strong> — 50% off, locked in forever.{' '}
-          <span className="text-orange-400 font-semibold">Limited spots remaining.</span>
-        </p>
-      </div>
-
-      <div className="max-w-5xl mx-auto px-4 py-16">
-        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-3">Simple, transparent pricing</h1>
+      <div className="max-w-4xl mx-auto px-4 py-16">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-3">Simple pricing</h1>
         <p className="text-slate-400 text-center mb-12">
           Know the rules before you list. Cancel anytime.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {TIERS.map((tier) => (
             <div
               key={tier.name}
-              className={`rounded-xl border p-5 flex flex-col ${
+              className={`rounded-xl border p-6 flex flex-col ${
                 tier.highlighted
                   ? 'bg-orange-500/10 border-orange-500/40 ring-1 ring-orange-500/30'
                   : 'bg-white/5 border-white/10'
@@ -106,24 +101,36 @@ export default function PricingPage() {
               )}
               <h2 className="text-xl font-bold mb-1">{tier.name}</h2>
               <p className="text-slate-400 text-sm mb-4">{tier.description}</p>
-              <div className="mb-5">
-                <span className="text-3xl font-bold">{tier.price}</span>
+              <div className="mb-6">
+                <span className="text-4xl font-bold">{tier.price}</span>
                 <span className="text-slate-400 text-sm">{tier.period}</span>
               </div>
-              <ul className="space-y-2 mb-6 flex-1">
+
+              {/* Included features */}
+              <ul className="space-y-2 mb-4 flex-1">
                 {tier.features.map((f) => (
                   <li key={f} className="flex gap-2 text-sm text-slate-300">
-                    <span className="text-green-400 shrink-0">✓</span>
+                    <span className="text-green-400 shrink-0 mt-0.5">✓</span>
+                    {f}
+                  </li>
+                ))}
+                {/* Locked features */}
+                {tier.locked.map((f) => (
+                  <li key={f} className="flex gap-2 text-sm text-slate-600">
+                    <span className="shrink-0 mt-0.5">🔒</span>
                     {f}
                   </li>
                 ))}
               </ul>
+
               <a
                 href={tier.href}
-                className={`block text-center rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors ${
+                className={`block text-center rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors mt-2 ${
                   tier.highlighted
                     ? 'bg-orange-500 hover:bg-orange-400 text-white'
-                    : 'bg-white/8 hover:bg-white/12 text-white border border-white/10'
+                    : tier.name === 'Free'
+                    ? 'bg-white/8 hover:bg-white/12 text-white border border-white/10'
+                    : 'bg-white/10 hover:bg-white/15 text-white border border-white/15'
                 }`}
               >
                 {tier.cta}
@@ -132,16 +139,12 @@ export default function PricingPage() {
           ))}
         </div>
 
-        {/* API note */}
-        <div className="mt-10 text-center">
-          <p className="text-slate-400 text-sm">
-            Need B2B API access?{' '}
-            <a href="mailto:api@stregs.ai" className="text-orange-400 hover:underline">
-              Contact us
-            </a>{' '}
-            — starting at $500/month.
-          </p>
-        </div>
+        <p className="text-center text-slate-500 text-sm mt-10">
+          Need B2B API access or bulk data?{' '}
+          <a href="mailto:hello@stregs.ai" className="text-orange-400 hover:underline">
+            Contact us
+          </a>
+        </p>
       </div>
     </main>
   );
