@@ -2,9 +2,23 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-const GOOGLE_MAPS_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!;
 
-// ── Google Maps Geocoding → city + state ──────────────────────────────────
+// US state name → abbreviation map
+const STATE_ABBR: Record<string, string> = {
+  'alabama':'AL','alaska':'AK','arizona':'AZ','arkansas':'AR','california':'CA',
+  'colorado':'CO','connecticut':'CT','delaware':'DE','florida':'FL','georgia':'GA',
+  'hawaii':'HI','idaho':'ID','illinois':'IL','indiana':'IN','iowa':'IA','kansas':'KS',
+  'kentucky':'KY','louisiana':'LA','maine':'ME','maryland':'MD','massachusetts':'MA',
+  'michigan':'MI','minnesota':'MN','mississippi':'MS','missouri':'MO','montana':'MT',
+  'nebraska':'NE','nevada':'NV','new hampshire':'NH','new jersey':'NJ','new mexico':'NM',
+  'new york':'NY','north carolina':'NC','north dakota':'ND','ohio':'OH','oklahoma':'OK',
+  'oregon':'OR','pennsylvania':'PA','rhode island':'RI','south carolina':'SC',
+  'south dakota':'SD','tennessee':'TN','texas':'TX','utah':'UT','vermont':'VT',
+  'virginia':'VA','washington':'WA','west virginia':'WV','wisconsin':'WI','wyoming':'WY',
+  'district of columbia':'DC','puerto rico':'PR','virgin islands':'VI',
+};
+
+// ── Census Geocoder → city + state (free, no key needed) ─────────────────
 async function geocodeAddress(address: string): Promise<{
   city: string | null;
   county: string | null;
@@ -14,33 +28,67 @@ async function geocodeAddress(address: string): Promise<{
   lng: number | null;
 } | null> {
   try {
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${GOOGLE_MAPS_KEY}`;
+    const params = new URLSearchParams({
+      address,
+      benchmark: 'Public_AR_Current',
+      vintage: 'Current_Current',
+      format: 'json',
+      layers: '86,61', // 86=Incorporated Places, 61=Counties
+    });
+
+    const url = `https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?${params}`;
     const res = await fetch(url, { next: { revalidate: 3600 } });
+    if (!res.ok) return null;
     const data = await res.json();
 
-    if (data.status !== 'OK' || !data.results?.length) return null;
+    const match = data?.result?.addressMatches?.[0];
+    if (!match) return null;
 
-    const result = data.results[0];
-    const components = result.address_components as Array<{ long_name: string; short_name: string; types: string[] }>;
+    const counties = match.geographies?.['Counties'] || [];
+    const places = match.geographies?.['Incorporated Places'] || [];
+    const states = match.geographies?.['States'] || [];
 
-    const get = (type: string) => components.find(c => c.types.includes(type));
+    const city = places[0]?.NAME || null;
+    const county = counties[0]?.NAME?.replace(/ County$/i, '') || null;
+    const stateName = states[0]?.NAME?.toLowerCase() || null;
+    const stateCode = stateName ? (STATE_ABBR[stateName] || null) : null;
+    const lat = match.coordinates?.y || null;
+    const lng = match.coordinates?.x || null;
 
-    const city =
-      get('locality')?.long_name ||
-      get('sublocality_level_1')?.long_name ||
-      get('neighborhood')?.long_name ||
-      null;
+    // Also try to extract state from address string as fallback
+    const addrStateMatch = address.match(/,\s*([A-Z]{2})\s*(\d{5})?$/);
+    const fallbackState = addrStateMatch?.[1] || null;
 
-    const county = get('administrative_area_level_2')?.long_name?.replace(/ County$/i, '') || null;
-    const state = get('administrative_area_level_1')?.long_name || null;
-    const stateCode = get('administrative_area_level_1')?.short_name || null;
-    const lat = result.geometry?.location?.lat ?? null;
-    const lng = result.geometry?.location?.lng ?? null;
-
-    return { city, county, state, stateCode, lat, lng };
+    return {
+      city,
+      county,
+      state: stateName,
+      stateCode: stateCode || fallbackState,
+      lat,
+      lng,
+    };
   } catch {
     return null;
   }
+}
+
+// ── String-based state extraction (fallback for Census miss) ─────────────
+function extractStateFromAddress(address: string): string | null {
+  // Match "City, ST 12345" or "City, ST" patterns
+  const m = address.match(/,\s*([A-Z]{2})\s*(?:\d{5})?(?:\s*,.*)?$/);
+  return m?.[1] || null;
+}
+
+// ── Extract city from address string ─────────────────────────────────────
+function extractCityFromAddress(address: string): string | null {
+  // "123 Street, City, ST 12345" → "City"
+  const parts = address.split(',').map(s => s.trim());
+  if (parts.length >= 2) {
+    const cityPart = parts[parts.length - 2];
+    // Remove zip if present
+    return cityPart.replace(/\s*\d{5}.*$/, '').trim() || null;
+  }
+  return null;
 }
 
 // ── Supabase jurisdiction lookup ──────────────────────────────────────────
@@ -84,13 +132,23 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'address_required' }, { status: 400 });
   }
 
-  // Step 1: Geocode the address
-  const geo = await geocodeAddress(address);
+  // Step 1: Geocode the address (Census geocoder, with string fallback)
+  let geo = await geocodeAddress(address);
+
+  // String fallback if Census fails
   if (!geo || !geo.stateCode) {
+    const stateCode = extractStateFromAddress(address) || (geo?.stateCode ?? null);
+    const city = geo?.city || extractCityFromAddress(address);
+    if (stateCode) {
+      geo = { city, county: geo?.county || null, state: null, stateCode, lat: null, lng: null };
+    }
+  }
+
+  if (!geo?.stateCode) {
     return NextResponse.json({
       address,
       found: false,
-      message: "We couldn't geocode that address. Try including the city and state.",
+      message: "We couldn't identify the city and state for that address. Try formatting it as: 123 Main St, City, ST",
     }, { status: 404 });
   }
 
