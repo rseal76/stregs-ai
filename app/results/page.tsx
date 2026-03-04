@@ -6,30 +6,33 @@ import { Suspense, useEffect, useState, useRef } from 'react';
 // ── Types ──────────────────────────────────────────────────────────────────
 interface RegulationResult {
   jurisdiction: string;
-  status: 'allowed' | 'conditional' | 'not_allowed';
+  status: 'allowed' | 'conditional' | 'not_allowed' | 'yes' | 'no' | string;
   summary: string;
   splitJurisdiction?: boolean;
+  pending?: string | null;
+  pendingLegislation?: string | null;
   details: {
-    permitRequired: boolean;
+    permitRequired: boolean | null;
     permitFeeAnnual: number | null;
-    primaryResidenceRequired: boolean;
-    ownerOccupiedRequired: boolean;
+    primaryResidenceRequired: boolean | null;
+    ownerOccupiedRequired: boolean | null;
     maxDaysPerYear: number | null;
-    licenseRequired: boolean;
-    inspectionRequired: boolean;
-    insuranceRequired: boolean;
-    noiseOrdinance: boolean;
+    licenseRequired: boolean | null;
+    inspectionRequired: boolean | null;
+    insuranceRequired: boolean | null;
+    noiseOrdinance?: boolean | null;
+    noiseOrdinanceApplicable?: boolean | null;
     parkingRequirements: string | null;
     occupancyLimits: string | null;
-    enforcementBody: string;
-    enforcementUrl: string;
+    enforcementBody: string | null;
+    enforcementUrl: string | null;
+    [key: string]: unknown;
   };
-  source: {
+  source?: {
     url: string;
     type: string;
     lastVerified: string;
   };
-  pending: string | null;
 }
 
 // ── Mock data (Denver) — replace with live Supabase query ──────────────────
@@ -63,7 +66,14 @@ const MOCK_DENVER: RegulationResult = {
 };
 
 // ── Status Badge ───────────────────────────────────────────────────────────
+function normalizeStatus(status: string): 'allowed' | 'conditional' | 'not_allowed' {
+  if (status === 'yes' || status === 'allowed') return 'allowed';
+  if (status === 'no' || status === 'not_allowed' || status === 'banned') return 'not_allowed';
+  return 'conditional';
+}
+
 function StatusBadge({ status }: { status: RegulationResult['status'] }) {
+  const normalized = normalizeStatus(status);
   const config = {
     allowed: {
       label: '✅ Allowed',
@@ -83,7 +93,7 @@ function StatusBadge({ status }: { status: RegulationResult['status'] }) {
       border: 'border-red-500/30',
       text: 'text-red-400',
     },
-  }[status];
+  }[normalized];
 
   return (
     <div
@@ -293,36 +303,38 @@ function ResultsContent() {
         />
         <DetailRow label="Inspection required" value={details.inspectionRequired ? 'Yes' : 'No'} />
         <DetailRow label="Insurance required" value={details.insuranceRequired ? 'Yes' : 'No'} />
-        <DetailRow label="Noise ordinance" value={details.noiseOrdinance ? 'Applies' : 'Not specified'} />
+        <DetailRow label="Noise ordinance" value={(details.noiseOrdinanceApplicable ?? details.noiseOrdinance) ? 'Applies' : 'Not specified'} />
         <DetailRow label="Occupancy limits" value={details.occupancyLimits} />
         <DetailRow label="Parking requirements" value={details.parkingRequirements} />
         <DetailRow label="Enforcement body" value={details.enforcementBody} />
       </div>
 
       {/* Pending changes */}
-      {result.pending && (
+      {(result.pending ?? result.pendingLegislation) && (
         <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-4 mb-6">
           <p className="text-yellow-400 text-sm">
-            ⚠️ <strong>Pending legislation:</strong> {result.pending}
+            ⚠️ <strong>Pending legislation:</strong> {result.pending ?? result.pendingLegislation}
           </p>
         </div>
       )}
 
       {/* Source */}
-      <div className="bg-white/3 border border-white/8 rounded-xl p-4 mb-8">
-        <p className="text-xs text-slate-500 mb-1">Source</p>
-        <a
-          href={result.source.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-orange-400 text-sm hover:underline break-all"
-        >
-          {result.source.url}
-        </a>
-        <p className="text-xs text-slate-500 mt-1">
-          {result.source.type} · Last verified {result.source.lastVerified}
-        </p>
-      </div>
+      {result.source?.url && (
+        <div className="bg-white/3 border border-white/8 rounded-xl p-4 mb-8">
+          <p className="text-xs text-slate-500 mb-1">Source</p>
+          <a
+            href={result.source.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-orange-400 text-sm hover:underline break-all"
+          >
+            {result.source.url}
+          </a>
+          <p className="text-xs text-slate-500 mt-1">
+            {result.source.type} · Last verified {result.source.lastVerified}
+          </p>
+        </div>
+      )}
 
       {/* Change alerts CTA */}
       <div className="bg-white/5 border border-white/10 rounded-xl p-5">
