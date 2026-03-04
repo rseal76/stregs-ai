@@ -8,8 +8,17 @@ export default function HomePage() {
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [activeSuggestion, setActiveSuggestion] = useState(-1);
+  const [marketCount, setMarketCount] = useState<number | null>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const router = useRouter();
+
+  // Fetch live market count from Supabase via /api/jurisdictions
+  useEffect(() => {
+    fetch('/api/jurisdictions')
+      .then(r => r.json())
+      .then(d => { if (d.count) setMarketCount(d.count); })
+      .catch(() => {});
+  }, []);
 
   // Debounced autocomplete fetch
   useEffect(() => {
@@ -139,9 +148,9 @@ export default function HomePage() {
         {/* Example addresses */}
         <div className="mt-5 flex flex-wrap gap-2 justify-center">
           {[
-            '1600 Pennsylvania Ave NW, Washington, DC',
-            '742 Evergreen Terrace, Nashville, TN',
-            '500 Beale St, Memphis, TN',
+            '1942 Broadway St, Nashville, TN',
+            '2301 Collins Ave, Miami Beach, FL',
+            '400 Broad St, Seattle, WA',
           ].map((example) => (
             <button
               key={example}
