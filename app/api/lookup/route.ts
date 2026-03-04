@@ -91,6 +91,34 @@ function extractCityFromAddress(address: string): string | null {
   return null;
 }
 
+// ── Normalize Census city names → simple city name ───────────────────────
+// Census returns things like "Nashville-Davidson metropolitan government (balance)"
+// We need just "Nashville"
+function normalizeCityName(raw: string): string[] {
+  const cleaned = raw
+    .replace(/\s*\(balance\)/i, '')
+    .replace(/\s*\(pt\.\)/i, '')
+    .replace(/\s*metropolitan government/i, '')
+    .replace(/\s*consolidated government/i, '')
+    .replace(/\s*unified government/i, '')
+    .replace(/\s*city and county/i, '')
+    .trim();
+
+  const candidates = [cleaned];
+
+  // "Nashville-Davidson" → also try "Nashville"
+  if (cleaned.includes('-')) {
+    candidates.push(cleaned.split('-')[0].trim());
+  }
+
+  // "Louisville Jefferson" → also try "Louisville"
+  if (cleaned.includes(' ')) {
+    candidates.push(cleaned.split(' ')[0].trim());
+  }
+
+  return [...new Set(candidates)];
+}
+
 // ── Supabase jurisdiction lookup ──────────────────────────────────────────
 async function lookupJurisdiction(name: string, stateCode: string) {
   const encoded = encodeURIComponent(name);
@@ -159,8 +187,12 @@ export async function POST(request: NextRequest) {
   let matchedBy = '';
 
   if (geo.city) {
-    jurisdiction = await lookupJurisdiction(geo.city, geo.stateCode);
-    if (jurisdiction) matchedBy = 'city';
+    // Normalize Census city names (e.g. "Nashville-Davidson metro govt (balance)" → ["Nashville-Davidson", "Nashville"])
+    const cityCandidates = normalizeCityName(geo.city);
+    for (const candidate of cityCandidates) {
+      jurisdiction = await lookupJurisdiction(candidate, geo.stateCode);
+      if (jurisdiction) { matchedBy = 'city'; break; }
+    }
   }
 
   if (!jurisdiction && geo.county) {
