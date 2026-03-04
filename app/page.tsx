@@ -75,7 +75,7 @@ export default function HomePage() {
         <div className="mb-6 inline-flex items-center gap-2 bg-orange-400/10 border border-orange-400/20 rounded-full px-4 py-1.5">
           <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
           <span className="text-xs text-orange-400 font-medium tracking-wide uppercase">
-            Colorado Phase 1 — Live
+            All 50 States — Nationwide Coverage Live
           </span>
         </div>
 
@@ -87,8 +87,8 @@ export default function HomePage() {
 
         {/* Subheadline */}
         <p className="text-lg sm:text-xl text-slate-400 text-center max-w-xl mb-10">
-          Instant STR regulatory intelligence for any address.
-          Colorado to start — national expansion in progress.
+          Instant STR regulatory intelligence for any US address.
+          1,100+ markets covered across all 50 states.
         </p>
 
         {/* Search Form */}
@@ -102,7 +102,7 @@ export default function HomePage() {
                 onKeyDown={handleKeyDown}
                 onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
                 onFocus={() => suggestions.length > 0 && setShowSuggestions(true)}
-                placeholder="Enter any Colorado address..."
+                placeholder="Enter any US address..."
                 autoComplete="off"
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:border-orange-400/60 transition-all text-base"
               />
@@ -139,9 +139,9 @@ export default function HomePage() {
         {/* Example addresses */}
         <div className="mt-5 flex flex-wrap gap-2 justify-center">
           {[
-            '7801 Zuni St, Denver, CO',
-            '5130 Independence St, Arvada, CO',
-            '4850 W 10th Ave, Lakewood, CO',
+            '1600 Pennsylvania Ave NW, Washington, DC',
+            '742 Evergreen Terrace, Nashville, TN',
+            '500 Beale St, Memphis, TN',
           ].map((example) => (
             <button
               key={example}
@@ -158,7 +158,7 @@ export default function HomePage() {
       <div className="border-t border-white/5">
         <div className="max-w-3xl mx-auto px-6 py-5 flex flex-wrap items-center justify-center gap-8">
           {[
-            { value: '10', label: 'Denver metro markets' },
+            { value: '1,100+', label: 'markets nationwide' },
             { value: 'AI-monitored', label: 'regulation changes' },
             { value: 'Always', label: 'up to date' },
           ].map(({ value, label }) => (
