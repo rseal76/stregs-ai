@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
   ComposableMap,
@@ -120,6 +120,7 @@ function normalizeCounty(name: string): string {
 
 export default function StateCoveragePage() {
   const params = useParams();
+  const router = useRouter();
   const stateCode = (params?.state as string)?.toUpperCase() || '';
 
   const [data, setData] = useState<StateData | null>(null);
@@ -159,6 +160,11 @@ export default function StateCoveragePage() {
   const isCountyCovered = useCallback((countyName: string) => {
     return countyMap.has(normalizeCounty(countyName));
   }, [countyMap]);
+
+  const handleCountyClick = useCallback((countyName: string) => {
+    const slug = countyName.toLowerCase().replace(/\s*county$/i, '').trim().replace(/\s+/g, '-');
+    router.push(`/coverage/${stateCode}/${slug}`);
+  }, [router, stateCode]);
 
   const handleMouseMove = useCallback((e: any, countyName: string) => {
     const key = normalizeCounty(countyName);
@@ -263,16 +269,17 @@ export default function StateCoveragePage() {
                         stroke="#0f172a"
                         strokeWidth={0.5}
                         style={{
-                          default: { outline: 'none', cursor: 'default' },
+                          default: { outline: 'none', cursor: covered ? 'pointer' : 'default' },
                           hover: {
                             outline: 'none',
                             fill: covered ? '#fb923c' : '#334155',
-                            cursor: 'default',
+                            cursor: covered ? 'pointer' : 'default',
                           },
                           pressed: { outline: 'none' },
                         }}
                         onMouseMove={(e: any) => handleMouseMove(e, countyName)}
                         onMouseLeave={() => setTooltip(null)}
+                        onClick={() => covered && handleCountyClick(countyName)}
                       />
                     );
                   });
@@ -303,13 +310,17 @@ export default function StateCoveragePage() {
           {tooltip.cities.length > 0 ? (
             <>
               <p className="text-orange-400 text-xs mb-1">{tooltip.totalCities} city{tooltip.totalCities !== 1 ? ' coverages' : ' coverage'}</p>
-              <p className="text-slate-400 text-xs">
+              <p className="text-slate-400 text-xs mb-2">
                 {tooltip.cities.join(', ')}
                 {tooltip.totalCities > 6 ? ` +${tooltip.totalCities - 6} more` : ''}
               </p>
+              <p className="text-slate-500 text-xs">Click to explore →</p>
             </>
           ) : (
-            <p className="text-slate-500 text-xs">County-level data available</p>
+            <>
+              <p className="text-slate-500 text-xs">County-level data available</p>
+              <p className="text-slate-500 text-xs">Click to explore →</p>
+            </>
           )}
         </div>
       )}
