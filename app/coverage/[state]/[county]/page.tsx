@@ -103,9 +103,10 @@ export default function CountyCoveragePage() {
               const resultsHref = `/results?address=${encodeURIComponent(searchAddress)}`;
 
               return (
-                <div
+                <Link
                   key={market.id}
-                  className="flex items-center justify-between bg-white/5 hover:bg-white/8 border border-white/10 rounded-xl px-5 py-4 transition-colors group"
+                  href={resultsHref}
+                  className="flex items-center justify-between bg-white/5 hover:bg-orange-500/10 border border-white/10 hover:border-orange-500/40 rounded-xl px-5 py-4 transition-colors group block"
                 >
                   <div>
                     <p className="font-medium text-white group-hover:text-orange-300 transition-colors">
@@ -115,13 +116,10 @@ export default function CountyCoveragePage() {
                       {market.type === 'county' ? 'County-wide regulations' : `City · ${countyDisplay}`}
                     </p>
                   </div>
-                  <Link
-                    href={resultsHref}
-                    className="text-xs bg-orange-500/20 hover:bg-orange-500 border border-orange-500/40 hover:border-orange-500 text-orange-300 hover:text-white font-medium rounded-lg px-4 py-2 transition-all"
-                  >
-                    View regulations →
-                  </Link>
-                </div>
+                  <span className="text-orange-400 text-sm font-medium group-hover:text-orange-300 transition-colors shrink-0 ml-4">
+                    View →
+                  </span>
+                </Link>
               );
             })}
           </div>
