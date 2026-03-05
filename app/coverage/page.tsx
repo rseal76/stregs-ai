@@ -56,11 +56,7 @@ export default function CoveragePage() {
   const getColor = useCallback((stateCode: string) => {
     const s = coverageData[stateCode];
     if (!s || s.total === 0) return '#1e293b'; // no coverage — dark slate
-
-    // Color by dominant regulation type
-    if (s.banned > s.conditional && s.banned > s.allowed) return '#ef4444'; // red — mostly banned
-    if (s.allowed > s.conditional) return '#22c55e'; // green — mostly allowed
-    return '#f97316'; // orange — mixed/conditional
+    return '#f97316'; // covered — orange
   }, [coverageData]);
 
   const handleMouseMove = useCallback((e: React.MouseEvent, stateCode: string) => {
@@ -112,9 +108,7 @@ export default function CoveragePage() {
 
         {/* Legend */}
         <div className="flex justify-center gap-6 mb-6 text-xs text-slate-400">
-          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-green-500 inline-block" /> Mostly allowed</span>
-          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-orange-500 inline-block" /> Conditional / mixed</span>
-          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-red-500 inline-block" /> Mostly restricted</span>
+          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-orange-500 inline-block" /> In our database</span>
           <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-slate-700 inline-block" /> Not yet covered</span>
         </div>
 
@@ -181,16 +175,11 @@ export default function CoveragePage() {
           style={{ left: tooltip.x + 14, top: tooltip.y - 10 }}
         >
           <p className="font-semibold text-white mb-1">{tooltip.state.name}</p>
-          <p className="text-orange-400 text-xs mb-2">{tooltip.state.total} market{tooltip.state.total !== 1 ? 's' : ''} covered</p>
-          <div className="flex gap-3 text-xs text-slate-400 mb-2">
-            {tooltip.state.allowed > 0 && <span className="text-green-400">✓ {tooltip.state.allowed} allowed</span>}
-            {tooltip.state.conditional > 0 && <span className="text-yellow-400">⚠ {tooltip.state.conditional} conditional</span>}
-            {tooltip.state.banned > 0 && <span className="text-red-400">✕ {tooltip.state.banned} restricted</span>}
-          </div>
+          <p className="text-orange-400 text-xs mb-2">{tooltip.state.total} market{tooltip.state.total !== 1 ? 's' : ''} in our database</p>
           {tooltip.state.markets.length > 0 && (
-            <p className="text-slate-500 text-xs">
-              {tooltip.state.markets.slice(0, 5).join(', ')}
-              {tooltip.state.markets.length > 5 ? ` +${tooltip.state.markets.length - 5} more` : ''}
+            <p className="text-slate-400 text-xs">
+              {tooltip.state.markets.slice(0, 6).join(', ')}
+              {tooltip.state.markets.length > 6 ? ` +${tooltip.state.markets.length - 6} more` : ''}
             </p>
           )}
         </div>
