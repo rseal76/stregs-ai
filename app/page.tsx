@@ -73,9 +73,14 @@ export default function HomePage() {
         <span className="text-xl font-bold tracking-tight">
           ST<span className="text-orange-400">Regs</span>.ai
         </span>
-        <a href="/pricing" className="text-sm text-slate-400 hover:text-white transition-colors">
-          Pricing
-        </a>
+        <div className="flex items-center gap-5">
+          <a href="/coverage" className="text-sm text-slate-400 hover:text-white transition-colors">
+            Coverage map
+          </a>
+          <a href="/pricing" className="text-sm text-slate-400 hover:text-white transition-colors">
+            Pricing
+          </a>
+        </div>
       </nav>
 
       {/* Hero */}
