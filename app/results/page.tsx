@@ -257,33 +257,32 @@ function ResultsContent() {
           value={details.primaryResidenceRequired ? 'Yes' : 'No'}
         />
 
-        {/* Blurred gate — rest of the breakdown */}
-        <div className="relative mt-1">
-          {/* Blurred content underneath */}
-          <div className="blur-sm pointer-events-none select-none opacity-60">
-            <DetailRow label="Annual license fee" value={details.permitFeeAnnual ? `$${details.permitFeeAnnual}/year` : 'No fee'} />
-            <DetailRow label="Nights per year cap" value={details.maxDaysPerYear ? `${details.maxDaysPerYear} nights/year` : 'No cap'} />
-            <DetailRow label="Inspection required" value={details.inspectionRequired ? 'Yes' : 'No'} />
-            <DetailRow label="Insurance required" value={details.insuranceRequired ? 'Yes' : 'No'} />
-            <DetailRow label="Noise ordinance" value={(details.noiseOrdinanceApplicable ?? details.noiseOrdinance) ? 'Applies' : 'Not specified'} />
-            <DetailRow label="Occupancy limits" value={details.occupancyLimits} />
-            <DetailRow label="Parking requirements" value={details.parkingRequirements} />
-            <DetailRow label="Enforcement body" value={details.enforcementBody} />
+        {/* Locked rows — label visible, value blurred */}
+        {[
+          'Annual license fee',
+          'Nights per year cap',
+          'Inspection required',
+          'Insurance required',
+          'Noise ordinance',
+          'Occupancy limits',
+          'Parking requirements',
+          'Enforcement contact',
+        ].map((label) => (
+          <div key={label} className="flex justify-between items-center py-2 border-b border-white/5 last:border-0">
+            <span className="text-sm text-slate-400">{label}</span>
+            <span className="text-sm text-white font-medium blur-sm select-none">████████</span>
           </div>
+        ))}
 
-          {/* Upgrade overlay */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-[#0f172a] via-[#0f172a]/80 to-transparent rounded-xl px-4">
-            <p className="text-white font-semibold text-sm mb-1 text-center">🔒 Full breakdown locked</p>
-            <p className="text-slate-400 text-xs text-center mb-3">
-              License fees, inspection rules, occupancy limits, enforcement contacts and more.
-            </p>
-            <a
-              href="/pricing"
-              className="bg-orange-500 hover:bg-orange-400 text-white text-xs font-semibold rounded-lg px-5 py-2 transition-colors"
-            >
-              Unlock for $19/mo →
-            </a>
-          </div>
+        {/* Upgrade CTA */}
+        <div className="mt-4 pt-3 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-slate-400">🔒 Unlock all details with a Standard or Pro plan</p>
+          <a
+            href="/pricing"
+            className="shrink-0 bg-orange-500 hover:bg-orange-400 text-white text-xs font-semibold rounded-lg px-5 py-2 transition-colors whitespace-nowrap"
+          >
+            Unlock for $19/mo →
+          </a>
         </div>
       </div>
 
