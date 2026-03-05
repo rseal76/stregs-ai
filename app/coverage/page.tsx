@@ -100,8 +100,8 @@ export default function CoveragePage() {
               <div className="text-xs text-slate-500 mt-1">Markets covered</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-orange-400">{totalStates}</div>
-              <div className="text-xs text-slate-500 mt-1">States + DC</div>
+              <div className="text-3xl font-bold text-orange-400">All 50</div>
+              <div className="text-xs text-slate-500 mt-1">States + DC + Puerto Rico</div>
             </div>
           </div>
         )}
