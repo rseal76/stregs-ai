@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import Stripe from 'stripe';
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? '', {
-  apiVersion: '2026-02-25.clover',
-});
+import { getStripe } from '@/lib/stripe';
 
 const PRICE_IDS: Record<string, string> = {
   standard: process.env.STRIPE_STANDARD_PRICE_ID ?? '',
@@ -22,7 +18,7 @@ export async function GET(
   }
 
   try {
-    const session = await stripe.checkout.sessions.create({
+    const session = await getStripe().checkout.sessions.create({
       mode: 'subscription',
       payment_method_types: ['card'],
       line_items: [{ price: priceId, quantity: 1 }],
