@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   ComposableMap,
   Geographies,
@@ -33,6 +34,7 @@ interface StateData {
 }
 
 export default function CoveragePage() {
+  const router = useRouter();
   const [coverageData, setCoverageData] = useState<Record<string, StateData>>({});
   const [totalMarkets, setTotalMarkets] = useState(0);
   const [totalStates, setTotalStates] = useState(0);
@@ -64,6 +66,12 @@ export default function CoveragePage() {
     if (!s) return;
     setTooltip({ x: e.clientX, y: e.clientY, state: s });
   }, [coverageData]);
+
+  const handleClick = useCallback((stateCode: string) => {
+    if (stateCode) {
+      router.push(`/coverage/${stateCode}`);
+    }
+  }, [router]);
 
   return (
     <main className="min-h-screen bg-[#0f172a] text-white">
@@ -148,6 +156,7 @@ export default function CoveragePage() {
                         }}
                         onMouseMove={(e: any) => handleMouseMove(e as React.MouseEvent, stateCode)}
                         onMouseLeave={() => setTooltip(null)}
+                        onClick={() => handleClick(stateCode)}
                       />
                     );
                   })
