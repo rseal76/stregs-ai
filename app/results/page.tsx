@@ -289,7 +289,7 @@ function ResultsContent() {
         <div className="mt-4 pt-3 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-slate-400">🔒 Unlock all details with a Standard or Pro plan</p>
           <a
-            href="/pricing"
+            href="/api/stripe/checkout/standard"
             className="shrink-0 bg-orange-500 hover:bg-orange-400 text-white text-xs font-semibold rounded-lg px-5 py-2 transition-colors whitespace-nowrap"
           >
             Unlock for $19/mo →
