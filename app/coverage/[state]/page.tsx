@@ -22,6 +22,76 @@ const STATE_FIPS: Record<string, string> = {
   WV:'54', WI:'55', WY:'56',
 };
 
+// State code → [longitude, latitude, scale]
+// Scale is for geoMercator — higher = more zoomed in
+const STATE_PROJECTION: Record<string, [number, number, number]> = {
+  AL: [-86.8,  32.8,  4500],
+  AK: [-153.0, 64.0,  1200],
+  AZ: [-111.7, 34.3,  3800],
+  AR: [-92.4,  34.9,  4500],
+  CA: [-119.5, 37.3,  2800],
+  CO: [-105.5, 39.0,  4200],
+  CT: [-72.7,  41.6, 13000],
+  DE: [-75.5,  39.0, 14000],
+  DC: [-77.0,  38.9, 60000],
+  FL: [-81.7,  27.8,  3000],
+  GA: [-83.4,  32.7,  4000],
+  HI: [-156.3, 20.3,  4000],
+  ID: [-114.5, 44.4,  3200],
+  IL: [-89.2,  40.0,  3500],
+  IN: [-86.3,  40.3,  5000],
+  IA: [-93.1,  42.0,  4500],
+  KS: [-98.4,  38.5,  4000],
+  KY: [-84.9,  37.7,  4000],
+  LA: [-91.8,  31.0,  4500],
+  ME: [-69.3,  45.4,  4000],
+  MD: [-76.8,  39.0,  6500],
+  MA: [-71.8,  42.2,  8500],
+  MI: [-85.5,  44.3,  3500],
+  MN: [-94.6,  46.4,  3200],
+  MS: [-89.7,  32.8,  4500],
+  MO: [-92.5,  38.4,  4000],
+  MT: [-109.6, 47.0,  2800],
+  NE: [-99.9,  41.5,  3800],
+  NV: [-116.7, 38.8,  3000],
+  NH: [-71.6,  44.0,  7000],
+  NJ: [-74.5,  40.1,  8500],
+  NM: [-106.2, 34.5,  3300],
+  NY: [-76.0,  43.0,  3800],
+  NC: [-79.4,  35.5,  4000],
+  ND: [-100.3, 47.5,  3800],
+  OH: [-82.8,  40.4,  4500],
+  OK: [-97.1,  35.5,  4000],
+  OR: [-120.5, 44.0,  3200],
+  PA: [-77.2,  40.9,  4500],
+  RI: [-71.5,  41.7, 20000],
+  SC: [-80.9,  33.8,  5200],
+  SD: [-100.2, 44.5,  3800],
+  TN: [-86.3,  35.8,  4000],
+  TX: [-99.3,  31.5,  2000],
+  UT: [-111.1, 39.3,  3500],
+  VT: [-72.7,  44.0,  8000],
+  VA: [-78.6,  37.5,  4200],
+  WA: [-120.5, 47.5,  3500],
+  WV: [-80.6,  38.9,  5500],
+  WI: [-89.8,  44.8,  3800],
+  WY: [-107.6, 43.0,  3800],
+};
+
+const STATE_NAMES: Record<string, string> = {
+  AL:'Alabama', AK:'Alaska', AZ:'Arizona', AR:'Arkansas', CA:'California',
+  CO:'Colorado', CT:'Connecticut', DE:'Delaware', DC:'Washington D.C.',
+  FL:'Florida', GA:'Georgia', HI:'Hawaii', ID:'Idaho', IL:'Illinois',
+  IN:'Indiana', IA:'Iowa', KS:'Kansas', KY:'Kentucky', LA:'Louisiana',
+  ME:'Maine', MD:'Maryland', MA:'Massachusetts', MI:'Michigan', MN:'Minnesota',
+  MS:'Mississippi', MO:'Missouri', MT:'Montana', NE:'Nebraska', NV:'Nevada',
+  NH:'New Hampshire', NJ:'New Jersey', NM:'New Mexico', NY:'New York',
+  NC:'North Carolina', ND:'North Dakota', OH:'Ohio', OK:'Oklahoma', OR:'Oregon',
+  PA:'Pennsylvania', RI:'Rhode Island', SC:'South Carolina', SD:'South Dakota',
+  TN:'Tennessee', TX:'Texas', UT:'Utah', VT:'Vermont', VA:'Virginia',
+  WA:'Washington', WV:'West Virginia', WI:'Wisconsin', WY:'Wyoming',
+};
+
 interface Market {
   name: string;
   type: string;
@@ -44,7 +114,6 @@ interface TooltipState {
   totalCities: number;
 }
 
-/** Normalize a county name for matching: lowercase, strip " county" */
 function normalizeCounty(name: string): string {
   return name.toLowerCase().replace(/\s*county$/i, '').trim();
 }
@@ -56,8 +125,6 @@ export default function StateCoveragePage() {
   const [data, setData] = useState<StateData | null>(null);
   const [loading, setLoading] = useState(true);
   const [tooltip, setTooltip] = useState<TooltipState | null>(null);
-
-  // Map: normalized county name → list of city/jurisdiction names
   const [countyMap, setCountyMap] = useState<Map<string, string[]>>(new Map());
 
   useEffect(() => {
@@ -66,30 +133,19 @@ export default function StateCoveragePage() {
       .then(r => r.json())
       .then((d: StateData) => {
         setData(d);
-
-        // Build county → cities map
         const map = new Map<string, string[]>();
         for (const m of d.markets) {
           if (!m.county) continue;
           const key = normalizeCounty(m.county);
           if (!map.has(key)) map.set(key, []);
-          // Only add city names (not county-type entries as a "city")
-          if (m.type === 'city') {
-            map.get(key)!.push(m.name);
-          } else if (m.type === 'county') {
-            // Mark county covered but don't add as a city name
-            if (!map.has(key)) map.set(key, []);
-          }
+          if (m.type === 'city') map.get(key)!.push(m.name);
         }
-
-        // Ensure county-type jurisdictions mark the county even without cities
         for (const m of d.markets) {
           if (m.type === 'county' && m.county) {
             const key = normalizeCounty(m.county);
             if (!map.has(key)) map.set(key, []);
           }
         }
-
         setCountyMap(map);
         setLoading(false);
       })
@@ -97,24 +153,21 @@ export default function StateCoveragePage() {
   }, [stateCode]);
 
   const stateFips = STATE_FIPS[stateCode] || '';
+  const proj = STATE_PROJECTION[stateCode];
+  const stateName = STATE_NAMES[stateCode] || stateCode;
 
-  const getCountyName = useCallback((geo: any): string => {
-    return geo.properties?.name || '';
-  }, []);
-
-  const isCountyCovered = useCallback((countyName: string): boolean => {
-    const key = normalizeCounty(countyName);
-    return countyMap.has(key);
+  const isCountyCovered = useCallback((countyName: string) => {
+    return countyMap.has(normalizeCounty(countyName));
   }, [countyMap]);
 
-  const handleMouseMove = useCallback((e: React.MouseEvent, countyName: string) => {
+  const handleMouseMove = useCallback((e: any, countyName: string) => {
     const key = normalizeCounty(countyName);
     const cities = countyMap.get(key) || [];
     setTooltip({
       x: e.clientX,
       y: e.clientY,
       countyName,
-      cities: cities.slice(0, 5),
+      cities: cities.slice(0, 6),
       totalCities: cities.length,
     });
   }, [countyMap]);
@@ -141,7 +194,7 @@ export default function StateCoveragePage() {
             </span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold mb-3">
-            {loading ? stateCode : data?.stateName} Coverage
+            {stateName} Coverage
           </h1>
           {!loading && data && (
             <p className="text-slate-400 max-w-xl mx-auto">
@@ -176,32 +229,31 @@ export default function StateCoveragePage() {
         </div>
 
         {/* Map */}
-        <div className="relative bg-[#0d1829] rounded-2xl border border-white/10 overflow-hidden">
+        <div className="relative bg-[#0d1829] rounded-2xl border border-white/10 overflow-hidden" style={{ minHeight: 420 }}>
           {loading && (
             <div className="absolute inset-0 flex items-center justify-center text-slate-500 text-sm z-10">
               Loading coverage data...
             </div>
           )}
-          {stateFips && (
+          {stateFips && proj && (
             <ComposableMap
-              projection="geoAlbersUsa"
+              projection="geoMercator"
+              projectionConfig={{
+                center: [proj[0], proj[1]],
+                scale: proj[2],
+              }}
               style={{ width: '100%', height: 'auto' }}
+              height={500}
             >
               <Geographies geography={GEO_URL}>
                 {({ geographies }: { geographies: any[] }) => {
-                  // Filter to only counties in this state (FIPS starts with state prefix)
                   const stateGeos = geographies.filter((geo: any) => {
                     const fips = String(geo.id).padStart(5, '0');
                     return fips.startsWith(stateFips);
                   });
 
-                  // If no counties found for this state, show a message
-                  if (stateGeos.length === 0 && !loading) {
-                    return null;
-                  }
-
                   return stateGeos.map((geo: any) => {
-                    const countyName = getCountyName(geo);
+                    const countyName = geo.properties?.name || '';
                     const covered = isCountyCovered(countyName);
                     return (
                       <Geography
@@ -219,7 +271,7 @@ export default function StateCoveragePage() {
                           },
                           pressed: { outline: 'none' },
                         }}
-                        onMouseMove={(e: any) => handleMouseMove(e as React.MouseEvent, countyName)}
+                        onMouseMove={(e: any) => handleMouseMove(e, countyName)}
                         onMouseLeave={() => setTooltip(null)}
                       />
                     );
@@ -250,14 +302,14 @@ export default function StateCoveragePage() {
           <p className="font-semibold text-white mb-1">{tooltip.countyName}</p>
           {tooltip.cities.length > 0 ? (
             <>
-              <p className="text-orange-400 text-xs mb-1">{tooltip.totalCities} city coverage{tooltip.totalCities !== 1 ? 's' : ''}</p>
+              <p className="text-orange-400 text-xs mb-1">{tooltip.totalCities} city{tooltip.totalCities !== 1 ? ' coverages' : ' coverage'}</p>
               <p className="text-slate-400 text-xs">
                 {tooltip.cities.join(', ')}
-                {tooltip.totalCities > 5 ? ` +${tooltip.totalCities - 5} more` : ''}
+                {tooltip.totalCities > 6 ? ` +${tooltip.totalCities - 6} more` : ''}
               </p>
             </>
           ) : (
-            <p className="text-slate-500 text-xs">No city-level data yet</p>
+            <p className="text-slate-500 text-xs">County-level data available</p>
           )}
         </div>
       )}
