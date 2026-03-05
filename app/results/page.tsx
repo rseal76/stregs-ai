@@ -244,30 +244,47 @@ function ResultsContent() {
         <p className="text-white leading-relaxed">{result.summary}</p>
       </div>
 
-      {/* Full Details */}
+      {/* Details — free rows shown, rest blurred + gated */}
       <div className="bg-white/5 border border-white/10 rounded-xl p-5 mb-6">
         <h2 className="text-sm font-semibold text-slate-300 uppercase tracking-wide mb-3">
-          Full Breakdown
+          Regulation Details
         </h2>
-        <DetailRow label="License required" value={details.licenseRequired ? 'Yes' : 'No'} />
-        <DetailRow
-          label="Annual license fee"
-          value={details.permitFeeAnnual ? `$${details.permitFeeAnnual}/year` : 'No fee'}
-        />
+
+        {/* Free: show 2 rows */}
+        <DetailRow label="Permit required" value={details.permitRequired ? 'Yes' : 'No'} />
         <DetailRow
           label="Primary residence required"
-          value={details.primaryResidenceRequired ? 'Yes — must be your primary home (183+ days/year)' : 'No'}
+          value={details.primaryResidenceRequired ? 'Yes' : 'No'}
         />
-        <DetailRow
-          label="Nights per year cap"
-          value={details.maxDaysPerYear ? `${details.maxDaysPerYear} nights/year` : 'No cap'}
-        />
-        <DetailRow label="Inspection required" value={details.inspectionRequired ? 'Yes' : 'No'} />
-        <DetailRow label="Insurance required" value={details.insuranceRequired ? 'Yes' : 'No'} />
-        <DetailRow label="Noise ordinance" value={(details.noiseOrdinanceApplicable ?? details.noiseOrdinance) ? 'Applies' : 'Not specified'} />
-        <DetailRow label="Occupancy limits" value={details.occupancyLimits} />
-        <DetailRow label="Parking requirements" value={details.parkingRequirements} />
-        <DetailRow label="Enforcement body" value={details.enforcementBody} />
+
+        {/* Blurred gate — rest of the breakdown */}
+        <div className="relative mt-1">
+          {/* Blurred content underneath */}
+          <div className="blur-sm pointer-events-none select-none opacity-60">
+            <DetailRow label="Annual license fee" value={details.permitFeeAnnual ? `$${details.permitFeeAnnual}/year` : 'No fee'} />
+            <DetailRow label="Nights per year cap" value={details.maxDaysPerYear ? `${details.maxDaysPerYear} nights/year` : 'No cap'} />
+            <DetailRow label="Inspection required" value={details.inspectionRequired ? 'Yes' : 'No'} />
+            <DetailRow label="Insurance required" value={details.insuranceRequired ? 'Yes' : 'No'} />
+            <DetailRow label="Noise ordinance" value={(details.noiseOrdinanceApplicable ?? details.noiseOrdinance) ? 'Applies' : 'Not specified'} />
+            <DetailRow label="Occupancy limits" value={details.occupancyLimits} />
+            <DetailRow label="Parking requirements" value={details.parkingRequirements} />
+            <DetailRow label="Enforcement body" value={details.enforcementBody} />
+          </div>
+
+          {/* Upgrade overlay */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-[#0f172a] via-[#0f172a]/80 to-transparent rounded-xl px-4">
+            <p className="text-white font-semibold text-sm mb-1 text-center">🔒 Full breakdown locked</p>
+            <p className="text-slate-400 text-xs text-center mb-3">
+              License fees, inspection rules, occupancy limits, enforcement contacts and more.
+            </p>
+            <a
+              href="/pricing"
+              className="bg-orange-500 hover:bg-orange-400 text-white text-xs font-semibold rounded-lg px-5 py-2 transition-colors"
+            >
+              Unlock for $19/mo →
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Pending changes */}
@@ -278,42 +295,6 @@ function ResultsContent() {
           </p>
         </div>
       )}
-
-      {/* Source */}
-      {result.source?.url && (
-        <div className="bg-white/3 border border-white/8 rounded-xl p-4 mb-8">
-          <p className="text-xs text-slate-500 mb-1">Source</p>
-          <a
-            href={result.source.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-orange-400 text-sm hover:underline break-all"
-          >
-            {result.source.url}
-          </a>
-          <p className="text-xs text-slate-500 mt-1">
-            {result.source.type} · Last verified {result.source.lastVerified}
-          </p>
-        </div>
-      )}
-
-      {/* Upgrade CTA */}
-      <div className="bg-orange-500/10 border border-orange-500/30 rounded-xl p-5 mb-4">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <h2 className="text-sm font-semibold text-white mb-1">🔒 Want the full report?</h2>
-            <p className="text-xs text-slate-400">
-              Unlock permit application links, step-by-step compliance plans, and change alerts for $19/mo.
-            </p>
-          </div>
-          <a
-            href="/pricing"
-            className="shrink-0 bg-orange-500 hover:bg-orange-400 text-white text-xs font-semibold rounded-lg px-4 py-2 transition-colors whitespace-nowrap"
-          >
-            See plans →
-          </a>
-        </div>
-      </div>
 
       {/* Change alerts CTA */}
       <div className="bg-white/5 border border-white/10 rounded-xl p-5">
