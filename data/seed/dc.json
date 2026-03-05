@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION",
+  "jurisdiction": "Washington DC",
+  "type": "city",
+  "state": "DC",
+  "parent_county": null,
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": 70,
+    "permit_fee_one_time": null,
+    "primary_residence_required": true,
+    "owner_occupied_required": false,
+    "max_days_per_year": 90,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "DCRA",
+    "enforcement_contact": null,
+    "enforcement_url": "https://dcra.dc.gov/node/1115856",
+    "notes": "Washington DC requires STR operators to register with DCRA (Dept of Consumer and Regulatory Affairs) since 2018. The unit must be the host's primary residence. Non-owner-occupied STRs are generally prohibited. A basic business license and STR endorsement are required.",
+    "effective_date": "2018-01-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://dcra.dc.gov/node/1115856",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

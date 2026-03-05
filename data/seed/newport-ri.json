@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Newport",
+  "type": "city",
+  "state": "RI",
+  "parent_county": "Newport County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": true,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": ["residential zones (non-primary residence)"],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Newport",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.cityofnewport.com/en-us/city-hall/departments/city-clerk/applications-forms/short-term-rental-regulations",
+    "notes": "Newport's residential zones prohibit STR rentals under 30 days unless the home is the owner's primary residence (ordinance passed March 2022). Rhode Island now requires statewide registration with the RI Department of Business Regulation (DBR) for STRs on hosting platforms (effective January 30, 2025, law S2410Aaa). Newport may also require a separate city permit.",
+    "effective_date": "2022-03-23",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.cityofnewport.com/en-us/city-hall/departments/city-clerk/applications-forms/short-term-rental-regulations",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

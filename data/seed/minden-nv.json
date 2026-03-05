@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION",
+  "jurisdiction": "Minden",
+  "type": "municipality",
+  "state": "NV",
+  "parent_county": "Douglas County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": null,
+    "enforcement_contact": null,
+    "enforcement_url": null,
+    "notes": "Minden in Douglas County near Lake Tahoe requires STR registration and lodging tax collection. The Carson Valley community has STR demand from Lake Tahoe tourists seeking more affordable accommodations. Douglas County regulations apply. The area has growing vacation rental activity.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.ci.minden.nv.us/",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

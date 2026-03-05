@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION",
+  "jurisdiction": "Davenport",
+  "type": "city",
+  "state": "FL",
+  "parent_county": "Polk County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": null,
+    "enforcement_contact": null,
+    "enforcement_url": null,
+    "notes": "Davenport is a major vacation rental hub near Walt Disney World. STRs are widely permitted and the area has thousands of vacation homes. Florida DBPR licensing is required along with Polk County tourist development tax collection. The city and surrounding unincorporated areas are among Florida's highest-density STR markets.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.cityofdavenportfl.gov/",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Maui County",
+  "type": "county",
+  "state": "HI",
+  "parent_county": null,
+  "regulations": {
+    "allowed": "conditional",
+    "status": "pending_change",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": true,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Maui County Department of Planning",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.mauicounty.gov/1874/Short-Term-Rental-Home-STRH-Application",
+    "notes": "Maui County limits STRs through Short-Term Rental Home (STRH) permits under County Code Chapter 19.65. Permits are capped per Community Plan Region — Lanai is limited to 15 permits, and Molokai has no new STRH permits being processed as of 12/31/2025. The mayor has introduced legislation to phase out STRs in apartment districts. Existing legal non-conforming STRs in resort areas may continue under different rules.",
+    "effective_date": null,
+    "pending_legislation": "Bill to phase out STRs in apartment districts introduced by Mayor Bissen"
+  },
+  "source": {
+    "primary_source_url": "https://www.mauicounty.gov/1874/Short-Term-Rental-Home-STRH-Application",
+    "source_type": "county_website",
+    "ordinance_number": "Maui County Code Chapter 19.65",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

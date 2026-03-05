@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION \u2014 researched via web search. Review before publishing.",
+  "jurisdiction": "Telluride",
+  "type": "municipality",
+  "state": "CO",
+  "parent_county": "San Miguel County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Town of Telluride Town Clerk",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.telluride-co.gov/740/Short-Term-Rental-Licenses",
+    "notes": "STR license required for all rentals under 30 days. The voter-approved cap on STR licenses (Question 2D) was allowed to expire by Town Council, removing the citywide cap beginning in 2024. New licenses applied for before December 31 of a year are for the remainder of that year only. STR excise tax applies. Annual licenses must be renewed each year.",
+    "effective_date": "2024-01-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.telluride-co.gov/740/Short-Term-Rental-Licenses",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

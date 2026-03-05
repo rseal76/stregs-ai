@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Glenwood Springs",
+  "type": "city",
+  "state": "CO",
+  "parent_county": "Garfield County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Glenwood Springs",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.cogs.us/333/Vacation-Rentals",
+    "notes": "Glenwood Springs requires a permit for all STRs (less than 30 consecutive days). Permits are good for two years and expire at the end of odd years. Starting February 24, 2025, all applications must be submitted via an online customer portal — paper and email applications are no longer accepted. The city updated its STR ordinance in 2024–2025 (Ordinance 10 and 27 Series of 2025).",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.cogs.us/333/Vacation-Rentals",
+    "source_type": "city_website",
+    "ordinance_number": "Ordinance No. 10, 2025; Ordinance No. 27, 2025",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

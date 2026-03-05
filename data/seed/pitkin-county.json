@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Pitkin County (Unincorporated)",
+  "type": "county",
+  "state": "CO",
+  "parent_county": "Pitkin County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": 120,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Pitkin County Community Development",
+    "enforcement_contact": null,
+    "enforcement_url": "https://pitkincounty.com/1431/Short-Term-Rentals",
+    "notes": "Pitkin County requires an STR license for all rentals under 30 days in unincorporated areas. Properties are limited to 120 rental days per year. License fees are tiered based on assessed property value (reported as $2,500–$3,500/year for higher-value properties). Minimum stay of 4 nights required. Proof of prior rental history required for new applicants.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://pitkincounty.com/1431/Short-Term-Rentals",
+    "source_type": "county_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

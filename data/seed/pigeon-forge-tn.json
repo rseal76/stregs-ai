@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Pigeon Forge",
+  "type": "city",
+  "state": "TN",
+  "parent_county": "Sevier County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Pigeon Forge",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.cityofpigeonforge.com/",
+    "notes": "Pigeon Forge is a major STR-friendly tourist destination. STR operations are permitted and require city business licenses and state DBPR license. Hosts must collect and remit occupancy taxes. The city has a strong tourism economy with thousands of cabin and vacation rental properties. As of July 1, 2025, the first 30 days of STR occupancy are subject to local occupancy tax per TN Public Chapter 364.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.cityofpigeonforge.com/",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

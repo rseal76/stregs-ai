@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION \u2014 researched via web search. Review before publishing.",
+  "jurisdiction": "Beaver Creek",
+  "type": "county",
+  "state": "CO",
+  "parent_county": "Eagle County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": false,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": false,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": null,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Eagle County Community Development / Beaver Creek Resort Association",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.eaglecounty.us/government/draft_short_term_rental_ordinance.php",
+    "notes": "Beaver Creek is an unincorporated gated resort community in Eagle County. As of late 2025, Eagle County has no strict STR licensing ordinance for unincorporated areas. Some HOA/resort association rules may apply within Beaver Creek itself. Note that Eagle-Vail area STRs are subject to a 1% Eagle-Vail Metro District sales tax in addition to county/state taxes.",
+    "effective_date": null,
+    "pending_legislation": "Eagle County considering full STR licensing ordinance"
+  },
+  "source": {
+    "primary_source_url": "https://www.eaglecounty.us/government/draft_short_term_rental_ordinance.php",
+    "source_type": "county_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

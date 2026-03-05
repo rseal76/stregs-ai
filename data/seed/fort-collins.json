@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Fort Collins",
+  "type": "city",
+  "state": "CO",
+  "parent_county": "Larimer County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": 100,
+    "permit_fee_one_time": 150,
+    "primary_residence_required": true,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": ["many residential zone districts — check STR zone map"],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Fort Collins",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.fcgov.com/shorttermrentals/",
+    "notes": "Fort Collins requires an STR permit ($150 initial application, $100 annual renewal). Primary residence is required. Many zone districts prohibit STRs — the city provides an interactive map showing where STRs are permitted. An application submitted 30 days before or after renewal notice is not subject to the renewal fee.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.fcgov.com/shorttermrentals/",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

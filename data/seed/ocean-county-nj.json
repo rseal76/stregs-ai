@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Ocean County",
+  "type": "county",
+  "state": "NJ",
+  "parent_county": null,
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Ocean County / Individual municipalities",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.co.ocean.nj.us/",
+    "notes": "Ocean County includes Toms River, Seaside Heights, and other Jersey Shore communities. NJ regulations are primarily local. Individual municipalities (Seaside Heights, Lavallette, etc.) have their own licensing requirements. New Jersey sales tax and local hotel taxes apply.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.co.ocean.nj.us/",
+    "source_type": "county_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

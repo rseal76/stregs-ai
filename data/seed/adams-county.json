@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Adams County (Unincorporated)",
+  "type": "county",
+  "state": "CO",
+  "parent_county": "Adams County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": null,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": null,
+    "owner_occupied_required": null,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": null,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": null,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Adams County",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.adcogov.org",
+    "notes": "Specific STR regulations for unincorporated Adams County were not confirmed in research. Verify current requirements with Adams County. Municipalities within Adams County (Aurora, Thornton, Westminster, Brighton, Commerce City, Northglenn, etc.) have their own regulations.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.adcogov.org",
+    "source_type": "county_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

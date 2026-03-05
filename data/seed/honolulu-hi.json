@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Honolulu",
+  "type": "city",
+  "state": "HI",
+  "parent_county": "Honolulu County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "pending_change",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": ["residential zones (outside resort/specific apartment zones)"],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Honolulu Department of Planning and Permitting",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.honolulu.gov/dpp/permitting/str/",
+    "notes": "Honolulu passed Ordinance 22-7, increasing minimum rental period from 30 to 90 days in most residential areas. STRs under 90 days are only permitted in resort-zoned areas and certain apartment-zoned areas with a Non-Conforming Use Certificate (NUC). Act 17 (2024 state law) gave Honolulu power to phase out STRs outside resort areas. Beginning September 2025, non-NUC residential rentals must have a minimum 90-day rental term.",
+    "effective_date": "2022-01-01",
+    "pending_legislation": "Ordinance 25-2 phasing out non-resort STRs"
+  },
+  "source": {
+    "primary_source_url": "https://www.honolulu.gov/dpp/permitting/str/",
+    "source_type": "city_website",
+    "ordinance_number": "Ordinance 22-7, Ordinance 24-14",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

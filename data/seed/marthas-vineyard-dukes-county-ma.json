@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Martha's Vineyard (Dukes County)",
+  "type": "county",
+  "state": "MA",
+  "parent_county": null,
+  "regulations": {
+    "allowed": "conditional",
+    "status": "pending_change",
+    "permit_required": false,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": false,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Individual Dukes County towns (Edgartown, Oak Bluffs, Tisbury, etc.)",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.dukescounty.org/",
+    "notes": "Martha's Vineyard towns began implementing STR restrictions in early 2025 to address the housing crisis. Some towns impose limits on rental frequency or minimum residency requirements. Massachusetts state STR tax (5.7%) plus local option excise (up to 6%) apply. Each of the 6 island towns may have different rules — no island-wide standard exists.",
+    "effective_date": null,
+    "pending_legislation": "Multiple town-level STR ordinances being adopted in 2025"
+  },
+  "source": {
+    "primary_source_url": "https://www.dukescounty.org/",
+    "source_type": "county_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

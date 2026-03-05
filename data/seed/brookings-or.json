@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION",
+  "jurisdiction": "Brookings",
+  "type": "city",
+  "state": "OR",
+  "parent_county": "Curry County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": null,
+    "enforcement_contact": null,
+    "enforcement_url": null,
+    "notes": "Brookings near the California border is Oregon's 'Banana Belt' with mild climate year-round. STRs require city licensing and transient lodging tax collection. The city has growing vacation rental activity. Azalea State Park and harbor activities drive tourism demand.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.brookings.or.us/",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

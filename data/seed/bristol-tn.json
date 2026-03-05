@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION",
+  "jurisdiction": "Bristol",
+  "type": "city",
+  "state": "TN",
+  "parent_county": "Sullivan County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": null,
+    "enforcement_contact": null,
+    "enforcement_url": null,
+    "notes": "Bristol straddles the Tennessee-Virginia state line. The Tennessee side requires business licensing and state accommodation tax collection. Known as the Birthplace of Country Music, the city has moderate STR activity driven by the Birthplace of Country Music Museum and outdoor recreation.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.bristoltn.org/",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

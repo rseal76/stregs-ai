@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Portland",
+  "type": "city",
+  "state": "OR",
+  "parent_county": "Multnomah County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": true,
+    "owner_occupied_required": true,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": ["commercial zones (no new Type B permits as of late 2024)"],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": "5 overnight guests (Type A); varies for Type B",
+    "enforcement_body": "Portland Bureau of Development Services",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.portland.gov/ppd/short-term-rentals",
+    "notes": "Portland requires STRs to be in the host's primary residence (owner-occupancy required). Type A permits allow 1-2 bedrooms, max 5 overnight guests. Type B conditional use allows 3-5 bedrooms. As of October 2024, new Type B permits are no longer allowed in commercial/industrial zones. Enforcement has intensified — in March 2024, Portland asked Airbnb to remove 100+ listings lacking valid permit numbers.",
+    "effective_date": "2024-10-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.portland.gov/ppd/short-term-rentals",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

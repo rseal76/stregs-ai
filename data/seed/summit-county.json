@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Summit County (Unincorporated)",
+  "type": "county",
+  "state": "CO",
+  "parent_county": "Summit County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Summit County Community Development",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.summitcountyco.gov/services/community_development/short_term_rentals/index.php",
+    "notes": "Unincorporated Summit County requires an STR license for all rentals under 30 days. Caps apply by basin (Upper Blue, Lower Blue, etc.) and some basins have waitlists. Ordinance 22 (approved Sept 2024) requires all listing platforms to post a valid STR license number. Updated regulations effective February 2023. Covers areas including Keystone and Copper Mountain unless those areas have their own incorporated regulations.",
+    "effective_date": "2023-02-15",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.summitcountyco.gov/services/community_development/short_term_rentals/index.php",
+    "source_type": "county_website",
+    "ordinance_number": "Ordinance No. 20-C (revised), Ordinance 22",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

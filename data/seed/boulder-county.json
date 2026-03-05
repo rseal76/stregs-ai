@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Boulder County (Unincorporated)",
+  "type": "county",
+  "state": "CO",
+  "parent_county": "Boulder County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Boulder County Community Planning & Permitting",
+    "enforcement_contact": null,
+    "enforcement_url": "https://bouldercounty.gov/departments/community-planning-permitting/short-term-dwelling-vacation-rental-licensing/",
+    "notes": "All STRs (short-term and vacation rentals) in unincorporated Boulder County must be licensed per Ordinance No. 2023-02 (effective March 2024). A local Boulder County license is required regardless of any prior Special Use Review approvals. The City of Boulder has separate regulations for STRs within city limits.",
+    "effective_date": "2024-03-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://bouldercounty.gov/departments/community-planning-permitting/short-term-dwelling-vacation-rental-licensing/",
+    "source_type": "county_website",
+    "ordinance_number": "Ordinance No. 2023-02",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "West Hollywood",
+  "type": "city",
+  "state": "CA",
+  "parent_county": "Los Angeles County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": true,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": ["rent-stabilized units"],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of West Hollywood",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.weho.org/",
+    "notes": "As of January 1, 2025, West Hollywood requires a minimum lease term of one year for all rental units, effectively banning STRs under 31 days for most units. Only home-sharing (host present) may be allowed under limited circumstances. Rent-stabilized apartments are strictly prohibited from STR use. This is one of the most restrictive STR markets in California.",
+    "effective_date": "2025-01-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.weho.org/",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

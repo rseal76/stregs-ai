@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION",
+  "jurisdiction": "Hamilton",
+  "type": "city",
+  "state": "MT",
+  "parent_county": "Ravalli County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": null,
+    "enforcement_contact": null,
+    "enforcement_url": null,
+    "notes": "Hamilton in the Bitterroot Valley requires STR operators to obtain a business license and comply with Montana state lodging facility requirements. The city has growing STR activity from outdoor recreation tourism. Ravalli County regulations apply to unincorporated areas. Montana requires lodging facility licenses for STRs renting more than 30 days per year.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.cityofhamilton.net/",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Branson",
+  "type": "city",
+  "state": "MO",
+  "parent_county": "Taney County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": true,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Branson Fire Department",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.bransonmo.gov/969/13828",
+    "notes": "As of May 1, 2025, Branson exclusively uses the term 'Short-Term Rental' (previously 'Nightly Rental'). An STR Permit is required, issued by the Fire Department after an approved inspection. STRs must be in approved commercial or tourist zones. A business license is also required. Non-permitted listings are subject to immediate enforcement and platform delisting.",
+    "effective_date": "2025-05-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.bransonmo.gov/969/13828",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

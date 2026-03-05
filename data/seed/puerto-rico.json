@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION",
+  "jurisdiction": "Puerto Rico",
+  "type": "county",
+  "state": "PR",
+  "parent_county": null,
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Puerto Rico Tourism Company",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.prtourism.com/",
+    "notes": "Puerto Rico requires STR operators to obtain a license from the Puerto Rico Tourism Company (PRTC/Compania de Turismo). STRs are generally allowed islandwide but operators must collect and remit lodging taxes. Some municipalities have additional local rules. Puerto Rico is a major Airbnb market with relatively permissive regulations.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.prtourism.com/",
+    "source_type": "state_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

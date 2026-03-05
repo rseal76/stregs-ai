@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Boulder",
+  "type": "city",
+  "state": "CO",
+  "parent_county": "Boulder County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": 25,
+    "permit_fee_one_time": 190,
+    "primary_residence_required": true,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Boulder Planning & Development Services",
+    "enforcement_contact": null,
+    "enforcement_url": "https://bouldercolorado.gov/services/rental-housing-licensing-short-term",
+    "notes": "STRs must be the operator's primary residence. The STR license is 4 years long ($190 application fee + $25 business license annually). ADUs may be licensed as STRs but are limited to 120 rental days per year; non-ADU primary residences have no day cap. One unit per owner is allowed as an STR. Entire home rentals are allowed.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://bouldercolorado.gov/services/rental-housing-licensing-short-term",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

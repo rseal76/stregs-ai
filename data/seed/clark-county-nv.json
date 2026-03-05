@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Clark County (unincorporated)",
+  "type": "county",
+  "state": "NV",
+  "parent_county": null,
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Clark County",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.clarkcountynv.gov/government/departments/administrative_services/intergovernmental_relations/short-term-rentals",
+    "notes": "Clark County (unincorporated areas, including much of the Las Vegas Strip area) licenses STRs as commercial businesses per Nevada Assembly Bill 363 (2021). Operators must register as a business and comply with safety requirements. Note that most of the famous Las Vegas Strip is in unincorporated Clark County, not the City of Las Vegas.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.clarkcountynv.gov/government/departments/administrative_services/intergovernmental_relations/short-term-rentals",
+    "source_type": "county_website",
+    "ordinance_number": "AB 363 (2021)",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

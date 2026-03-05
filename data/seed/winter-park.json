@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION \u2014 researched via web search. Review before publishing.",
+  "jurisdiction": "Winter Park",
+  "type": "municipality",
+  "state": "CO",
+  "parent_county": "Grand County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": 150,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": true,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": "No overnight parking on any town street from November 1 \u2013 May 1",
+    "occupancy_limits": null,
+    "enforcement_body": "Town of Winter Park",
+    "enforcement_contact": null,
+    "enforcement_url": "https://wpgov.com/good-neighbor/",
+    "notes": "Winter Park requires STR registration before listing on Airbnb, VRBO, or similar platforms. Annual $150 registration fee paid via MuniRevs. Every owner must register even if using a property manager. East Grand Fire requires a Fire & Life Safety Inspection for all STRs. All registrations expire September 30 annually and are not pro-rated. Registration number must appear in all advertising.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://wpgov.com/good-neighbor/",
+    "source_type": "city_website",
+    "ordinance_number": "O552 (amended O574)",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

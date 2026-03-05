@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Miami",
+  "type": "city",
+  "state": "FL",
+  "parent_county": "Miami-Dade County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Miami",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.miami.gov/Permits-Construction/Short-Term-RentalLodging-Procedures",
+    "notes": "Miami's STR rules are zoning-dependent. T6 zones (urban core) permit 365-day STRs. Apartment/condo conversions to STR use require specific permits and must go through the apartment-hotel conversion process. Residential zones generally restrict or prohibit STRs. Hosts must obtain a Florida DBPR vacation rental license in addition to local permits.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.miami.gov/Permits-Construction/Short-Term-RentalLodging-Procedures",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

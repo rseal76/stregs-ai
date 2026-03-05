@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Dare County",
+  "type": "county",
+  "state": "NC",
+  "parent_county": null,
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Dare County",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.darenc.com/",
+    "notes": "Dare County (Outer Banks) does not broadly restrict STRs and has a relatively permissive regulatory environment. Municipalities within Dare County (Kill Devil Hills, Kitty Hawk, etc.) require town-level vacation rental permits. Hosts must obtain NC sales tax registration and a Dare County Occupancy Tax Account for tax remittance. Conditional use permits may be required in some municipalities.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.darenc.com/",
+    "source_type": "county_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

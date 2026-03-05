@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Littleton",
+  "type": "city",
+  "state": "CO",
+  "parent_county": "Arapahoe County / Jefferson County / Douglas County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": null,
+    "owner_occupied_required": null,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Littleton Business Licensing",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.littletonco.gov/Business/Business-License/Short-Term-Rental-STR-License",
+    "notes": "Littleton requires an STR license for all rentals of less than 30 consecutive days. Apply through the City of Littleton Business Licensing portal. Verify current fee, primary residence requirements, and other details directly with the city.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.littletonco.gov/Business/Business-License/Short-Term-Rental-STR-License",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Austin",
+  "type": "city",
+  "state": "TX",
+  "parent_county": "Travis County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Austin Development Services Department",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.austintexas.gov/department/short-term-rentals",
+    "notes": "All STR owners/operators in the City of Austin must be licensed annually. New rules took effect October 1, 2025 — STRs are now primarily regulated under Title 4 (business regulations) rather than the Land Development Code. As of April 1, 2025, platforms including Airbnb and VRBO are required to collect and remit Hotel Occupancy Taxes on behalf of hosts.",
+    "effective_date": "2025-10-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.austintexas.gov/department/short-term-rentals",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

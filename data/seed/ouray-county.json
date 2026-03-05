@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Ouray County (Unincorporated)",
+  "type": "county",
+  "state": "CO",
+  "parent_county": "Ouray County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": 100,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Ouray County Land Use Department",
+    "enforcement_contact": null,
+    "enforcement_url": "https://ouraycountyco.gov/351/Short-Term-Rental-Permitting",
+    "notes": "Unincorporated Ouray County requires a STR permit per Ordinance 2024-001 (updated from 2018-003). Total permits are capped at 100 (50 Type 1 + 50 Type 2). City of Ouray and Town of Ridgway have separate regulations and are not subject to county rules within their limits.",
+    "effective_date": "2024-01-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://ouraycountyco.gov/351/Short-Term-Rental-Permitting",
+    "source_type": "county_website",
+    "ordinance_number": "Ordinance 2024-001",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

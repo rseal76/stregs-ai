@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION \u2014 researched via web search. Review before publishing.",
+  "jurisdiction": "Buena Vista",
+  "type": "municipality",
+  "state": "CO",
+  "parent_county": "Chaffee County",
+  "regulations": {
+    "allowed": "no",
+    "status": "moratorium",
+    "permit_required": false,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": null,
+    "owner_occupied_required": null,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": false,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": null,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Town of Buena Vista",
+    "enforcement_contact": null,
+    "enforcement_url": "https://buenavistaco.gov/2520/Short-Term-Rental",
+    "notes": "On January 13, 2026, the Buena Vista Board of Trustees adopted Emergency Ordinance No. 01 imposing a TEMPORARY MORATORIUM on the acceptance, processing, and approval of ALL new STR license applications. Existing licenses may still be in effect but no new licenses are being issued during the moratorium. Check with the town for moratorium end date and future regulations.",
+    "effective_date": "2026-01-13",
+    "pending_legislation": "Moratorium in effect as of January 13, 2026. New STR ordinance expected."
+  },
+  "source": {
+    "primary_source_url": "https://buenavistaco.gov/2520/Short-Term-Rental",
+    "source_type": "city_website",
+    "ordinance_number": "Emergency Ordinance No. 01 (2026)",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

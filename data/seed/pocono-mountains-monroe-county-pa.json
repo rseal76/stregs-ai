@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Pocono Mountains (Monroe County)",
+  "type": "county",
+  "state": "PA",
+  "parent_county": null,
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": "2 per bedroom + 2 (per 2024 amendment)",
+    "enforcement_body": "Individual Pocono municipalities (Tobyhanna Twp, Mt. Pocono, etc.)",
+    "enforcement_contact": null,
+    "enforcement_url": "https://poconorealtors.com/short-term-rental-information/",
+    "notes": "The Pocono Mountains STR market is regulated at the municipal level — each township/borough has its own rules. Tobyhanna Township's ordinance was revised in Feb 2024 to set occupancy at 2 per bedroom + 2. Mount Pocono requires a license per ecode360. Monroe County Hotel Excise Tax and PA sales tax apply. Regulations vary widely by municipality.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://poconorealtors.com/short-term-rental-information/",
+    "source_type": "general_code",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

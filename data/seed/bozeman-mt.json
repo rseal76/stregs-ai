@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Bozeman",
+  "type": "city",
+  "state": "MT",
+  "parent_county": "Gallatin County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": true,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Bozeman",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.bozeman.net/",
+    "notes": "Bozeman banned new non-owner-occupied STRs in 2024. Existing grandfathered properties may continue. ADUs can still be rented as full-time STRs. Owner-occupied homes may be rented for up to 30% of the year (approximately 110 days). All listings on platforms like Airbnb/VRBO must display city-issued permit numbers (Ordinance 2131).",
+    "effective_date": "2024-01-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.bozeman.net/",
+    "source_type": "city_website",
+    "ordinance_number": "Ordinance 2131",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Deschutes County",
+  "type": "county",
+  "state": "OR",
+  "parent_county": null,
+  "regulations": {
+    "allowed": "yes",
+    "status": "pending_change",
+    "permit_required": false,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": false,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Deschutes County",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.deschutes.org/",
+    "notes": "Deschutes County unincorporated areas (including Sunriver, Black Butte Ranch) have historically had minimal STR licensing requirements. As of 2024, the county is developing a new business license program for STRs in rural unincorporated areas. 35-40% of Sunriver's ~4,200 properties are STRs. Oregon Transient Lodging Tax and Deschutes County TRT must be collected.",
+    "effective_date": null,
+    "pending_legislation": "Business license requirement being developed (2024)"
+  },
+  "source": {
+    "primary_source_url": "https://www.deschutes.org/",
+    "source_type": "county_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

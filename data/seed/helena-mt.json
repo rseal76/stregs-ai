@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Helena",
+  "type": "city",
+  "state": "MT",
+  "parent_county": "Lewis and Clark County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": false,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": false,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Helena",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.helenamt.gov/",
+    "notes": "Helena's code does not specifically define short-term rentals, so STRs generally operate without specific city permits. Montana Lodging Facility Sales and Use Tax registration required. The city is the Montana state capital with limited STR market.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.helenamt.gov/",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

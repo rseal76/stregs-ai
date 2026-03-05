@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Scottsdale",
+  "type": "city",
+  "state": "AZ",
+  "parent_county": "Maricopa County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": true,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Scottsdale",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.scottsdaleaz.gov/codes-and-ordinances/vacation-and-short-term-rentals",
+    "notes": "Scottsdale's Ordinance 4566 (Article IX of City Code) requires owners/operators to obtain a license for each property. Requirements include insurance, neighbor notification, safety standards, and noise controls. Arizona state law (ARS 9-500.39) preempts cities from banning STRs outright but allows local licensing and safety rules. Scottsdale has actively enforced compliance since November 2022.",
+    "effective_date": "2022-11-24",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.scottsdaleaz.gov/codes-and-ordinances/vacation-and-short-term-rentals",
+    "source_type": "city_website",
+    "ordinance_number": "Ordinance 4566",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

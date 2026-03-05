@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Summit County",
+  "type": "county",
+  "state": "UT",
+  "parent_county": null,
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": 350,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Summit County",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.summitcounty.org/",
+    "notes": "Summit County encompasses Park City and Canyons Village area. Annual Nightly Rental License required from the county at $350/year. STRs are primarily permitted in resort zones and certain designated areas. Utah transient room tax must be collected and remitted. The county works closely with the City of Park City which has separate municipal requirements.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.summitcounty.org/",
+    "source_type": "county_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

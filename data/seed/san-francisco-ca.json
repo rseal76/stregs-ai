@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "San Francisco",
+  "type": "city",
+  "state": "CA",
+  "parent_county": "San Francisco County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": 925,
+    "primary_residence_required": true,
+    "owner_occupied_required": false,
+    "max_days_per_year": 90,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": true,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "SF Office of Short-Term Rentals (OSTR)",
+    "enforcement_contact": null,
+    "enforcement_url": "https://sfplanning.org/short-term-rentals",
+    "notes": "San Francisco requires registration with the Office of Short-Term Rentals (OSTR). STRs are limited to the host's primary residence. Unhosted rentals (host not present) are capped at 90 days per year; hosted rentals have no day cap. Application fee as of May 2025 is $925, valid for 2 years. Hosts must carry property-liability insurance of at least $500,000 or use a platform that provides it (e.g., Airbnb, VRBO).",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://sfplanning.org/short-term-rentals",
+    "source_type": "city_website",
+    "ordinance_number": "Administrative Code Chapter 41A.5(g)",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Broken Bow",
+  "type": "city",
+  "state": "OK",
+  "parent_county": "McCurtain County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": false,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": false,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Broken Bow",
+    "enforcement_contact": null,
+    "enforcement_url": "https://library.municode.com/ok/broken_bow",
+    "notes": "Broken Bow has not enacted its own STR laws — no special permits or licenses are required at the city level. Properties must comply with Oklahoma state regulations, which are minimal. Oklahoma state sales tax and hotel tax apply. The McCurtain County cabin market is one of the largest STR markets in Oklahoma.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://library.municode.com/ok/broken_bow",
+    "source_type": "municode",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

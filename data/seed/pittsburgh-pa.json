@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Pittsburgh",
+  "type": "city",
+  "state": "PA",
+  "parent_county": "Allegheny County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Pittsburgh Department of Permits, Licenses, and Inspections (PLI)",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.pittsburghpa.gov/Business-Development/Permits-Licenses-and-Inspections/Licenses/Trade-Licenses/Rental-Registration",
+    "notes": "As of December 19, 2024, Pittsburgh launched a Residential Housing Rental Permit Program requiring all rental properties to obtain permits. STRs are relatively unrestricted — both owner-occupied and non-owner-occupied are permitted. The program was in voluntary compliance until June 1, 2025. Pennsylvania hotel tax must be collected.",
+    "effective_date": "2024-12-19",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.pittsburghpa.gov/Business-Development/Permits-Licenses-and-Inspections/Licenses/Trade-Licenses/Rental-Registration",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

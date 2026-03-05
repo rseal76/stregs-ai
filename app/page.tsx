@@ -2,6 +2,7 @@
 
 import { useState, FormEvent, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import { NavAuth } from '@/components/NavAuth';
 
 export default function HomePage() {
   const [address, setAddress] = useState('');
@@ -80,6 +81,7 @@ export default function HomePage() {
           <a href="/pricing" className="text-sm text-slate-400 hover:text-white transition-colors">
             Pricing
           </a>
+          <NavAuth />
         </div>
       </nav>
 

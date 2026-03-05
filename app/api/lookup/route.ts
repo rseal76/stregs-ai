@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getUserTierFromToken } from '@/lib/supabase-server';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY!;
@@ -55,7 +56,6 @@ async function geocodeAddress(address: string): Promise<{
     const lat = match.coordinates?.y || null;
     const lng = match.coordinates?.x || null;
 
-    // Also try to extract state from address string as fallback
     const addrStateMatch = address.match(/,\s*([A-Z]{2})\s*(\d{5})?$/);
     const fallbackState = addrStateMatch?.[1] || null;
 
@@ -74,26 +74,21 @@ async function geocodeAddress(address: string): Promise<{
 
 // ── String-based state extraction (fallback for Census miss) ─────────────
 function extractStateFromAddress(address: string): string | null {
-  // Match "City, ST 12345" or "City, ST" patterns
   const m = address.match(/,\s*([A-Z]{2})\s*(?:\d{5})?(?:\s*,.*)?$/);
   return m?.[1] || null;
 }
 
 // ── Extract city from address string ─────────────────────────────────────
 function extractCityFromAddress(address: string): string | null {
-  // "123 Street, City, ST 12345" → "City"
   const parts = address.split(',').map(s => s.trim());
   if (parts.length >= 2) {
     const cityPart = parts[parts.length - 2];
-    // Remove zip if present
     return cityPart.replace(/\s*\d{5}.*$/, '').trim() || null;
   }
   return null;
 }
 
-// ── Normalize Census city names → simple city name ───────────────────────
-// Census returns things like "Nashville-Davidson metropolitan government (balance)"
-// We need just "Nashville"
+// ── Normalize Census city names ───────────────────────────────────────────
 function normalizeCityName(raw: string): string[] {
   const cleaned = raw
     .replace(/\s*\(balance\)/i, '')
@@ -106,12 +101,10 @@ function normalizeCityName(raw: string): string[] {
 
   const candidates = [cleaned];
 
-  // "Nashville-Davidson" → also try "Nashville"
   if (cleaned.includes('-')) {
     candidates.push(cleaned.split('-')[0].trim());
   }
 
-  // "Louisville Jefferson" → also try "Louisville"
   if (cleaned.includes(' ')) {
     candidates.push(cleaned.split(' ')[0].trim());
   }
@@ -160,10 +153,15 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'address_required' }, { status: 400 });
   }
 
-  // Step 1: Geocode the address (Census geocoder, with string fallback)
+  // ── Determine user tier (server-side) ──────────────────────────────────
+  const authHeader = request.headers.get('authorization');
+  const token = authHeader?.startsWith('Bearer ') ? authHeader.slice(7) : null;
+  const tier = await getUserTierFromToken(token);
+  const isPaid = tier === 'standard' || tier === 'pro';
+
+  // Step 1: Geocode the address
   let geo = await geocodeAddress(address);
 
-  // String fallback if Census fails
   if (!geo || !geo.stateCode) {
     const stateCode = extractStateFromAddress(address) || (geo?.stateCode ?? null);
     const city = geo?.city || extractCityFromAddress(address);
@@ -180,14 +178,13 @@ export async function POST(request: NextRequest) {
     }, { status: 404 });
   }
 
-  console.log(`[lookup] Geocoded: city="${geo.city}" county="${geo.county}" state="${geo.stateCode}"`);
+  console.log(`[lookup] Geocoded: city="${geo.city}" county="${geo.county}" state="${geo.stateCode}" tier="${tier}"`);
 
   // Step 2: Try to match city first, then county fallback
   let jurisdiction = null;
   let matchedBy = '';
 
   if (geo.city) {
-    // Normalize Census city names (e.g. "Nashville-Davidson metro govt (balance)" → ["Nashville-Davidson", "Nashville"])
     const cityCandidates = normalizeCityName(geo.city);
     for (const candidate of cityCandidates) {
       jurisdiction = await lookupJurisdiction(candidate, geo.stateCode);
@@ -196,7 +193,6 @@ export async function POST(request: NextRequest) {
   }
 
   if (!jurisdiction && geo.county) {
-    // Try "X County" style name
     jurisdiction = await lookupJurisdiction(`${geo.county} County`, geo.stateCode);
     if (!jurisdiction) jurisdiction = await lookupJurisdiction(geo.county, geo.stateCode);
     if (jurisdiction) matchedBy = 'county';
@@ -223,44 +219,75 @@ export async function POST(request: NextRequest) {
     }, { status: 404 });
   }
 
-  console.log(`[lookup] ${address} → ${jurisdiction.name}, ${jurisdiction.state} (matched by ${matchedBy})`);
+  console.log(`[lookup] ${address} → ${jurisdiction.name}, ${jurisdiction.state} (by ${matchedBy}, tier=${tier})`);
 
-  return NextResponse.json({
+  // ── Build response with tier-based gating ─────────────────────────────
+  // Free tier: only verdict + permitRequired + primaryResidenceRequired
+  // Standard/Pro: full details
+
+  const baseResponse = {
     address,
     found: true,
+    tier,
     jurisdiction: jurisdiction.name,
     jurisdictionType: jurisdiction.type,
     state: jurisdiction.state,
     geocoded: { lat: geo.lat, lng: geo.lng },
 
-    // Status
+    // Always available
     status: regs.allowed ?? 'unknown',
     regulationStatus: regs.status,
-    pendingLegislation: regs.pending_legislation,
-    effectiveDate: regs.effective_date,
+    pendingLegislation: isPaid ? regs.pending_legislation : null,
+    effectiveDate: isPaid ? regs.effective_date : null,
 
-    // Summary
+    // Summary — available to all
     summary: regs.notes,
 
-    // Details
-    details: {
-      permitRequired: regs.permit_required,
-      permitFeeAnnual: regs.permit_fee_annual,
-      permitFeeOneTime: regs.permit_fee_one_time,
-      licenseRequired: regs.license_required,
-      inspectionRequired: regs.inspection_required,
-      insuranceRequired: regs.insurance_required,
-      primaryResidenceRequired: regs.primary_residence_required,
-      ownerOccupiedRequired: regs.owner_occupied_required,
-      maxDaysPerYear: regs.max_days_per_year,
-      permitCapCitywide: regs.permit_cap_citywide,
-      permitCapPerBlock: regs.permit_cap_per_block,
-      prohibitedZoneTypes: regs.prohibited_zone_types,
-      noiseOrdinanceApplicable: regs.noise_ordinance_applicable,
-      parkingRequirements: regs.parking_requirements,
-      occupancyLimits: regs.occupancy_limits,
-      enforcementBody: regs.enforcement_body,
-      enforcementUrl: regs.enforcement_url,
-    },
-  });
+    // Details — free gets only these two; paid gets everything
+    details: isPaid
+      ? {
+          permitRequired: regs.permit_required,
+          permitFeeAnnual: regs.permit_fee_annual,
+          permitFeeOneTime: regs.permit_fee_one_time,
+          licenseRequired: regs.license_required,
+          inspectionRequired: regs.inspection_required,
+          insuranceRequired: regs.insurance_required,
+          primaryResidenceRequired: regs.primary_residence_required,
+          ownerOccupiedRequired: regs.owner_occupied_required,
+          maxDaysPerYear: regs.max_days_per_year,
+          permitCapCitywide: regs.permit_cap_citywide,
+          permitCapPerBlock: regs.permit_cap_per_block,
+          prohibitedZoneTypes: regs.prohibited_zone_types,
+          noiseOrdinanceApplicable: regs.noise_ordinance_applicable,
+          parkingRequirements: regs.parking_requirements,
+          occupancyLimits: regs.occupancy_limits,
+          enforcementBody: regs.enforcement_body,
+          enforcementUrl: regs.enforcement_url,
+          permitApplicationUrl: regs.permit_application_url ?? null,
+        }
+      : {
+          // Free tier — only the basics
+          permitRequired: regs.permit_required,
+          primaryResidenceRequired: regs.primary_residence_required,
+          // Everything else is null/hidden
+          permitFeeAnnual: null,
+          permitFeeOneTime: null,
+          licenseRequired: null,
+          inspectionRequired: null,
+          insuranceRequired: null,
+          ownerOccupiedRequired: null,
+          maxDaysPerYear: null,
+          permitCapCitywide: null,
+          permitCapPerBlock: null,
+          prohibitedZoneTypes: null,
+          noiseOrdinanceApplicable: null,
+          parkingRequirements: null,
+          occupancyLimits: null,
+          enforcementBody: null,
+          enforcementUrl: null,
+          permitApplicationUrl: null,
+        },
+  };
+
+  return NextResponse.json(baseResponse);
 }

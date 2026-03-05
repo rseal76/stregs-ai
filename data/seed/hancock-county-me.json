@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Hancock County",
+  "type": "county",
+  "state": "ME",
+  "parent_county": null,
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": false,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": false,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Individual Hancock County towns",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.hancockcountymaine.gov/",
+    "notes": "Hancock County encompasses Bar Harbor and the Acadia National Park area. Maine counties don't govern directly — towns regulate STRs. Bar Harbor (see bar-harbor-me.json) has its own rules. Maine lodging taxes required. Most towns in the county have minimal STR-specific regulations.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.hancockcountymaine.gov/",
+    "source_type": "county_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

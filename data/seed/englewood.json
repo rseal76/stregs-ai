@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Englewood",
+  "type": "city",
+  "state": "CO",
+  "parent_county": "Arapahoe County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": 150,
+    "permit_fee_one_time": null,
+    "primary_residence_required": true,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Englewood Community Development",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.englewoodco.gov/government/city-departments/community-development/new-navigation-page-short-term-rentals",
+    "notes": "Englewood requires STR operators in residential zones to be the primary resident and live at the property at least 185 days per year. All STR operators need a state sales tax license, an Englewood sales and use tax license, and an Englewood lodging license ($150/year). License number must be included in all advertising.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.englewoodco.gov/government/city-departments/community-development/new-navigation-page-short-term-rentals",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Sarasota",
+  "type": "city",
+  "state": "FL",
+  "parent_county": "Sarasota County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": true,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Sarasota",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.sarasotafl.gov/",
+    "notes": "Sarasota enacted a vacation rental registration ordinance (Ordinance 25-5560) requiring all 1-4 family dwelling units in Residential zones to obtain a Certificate of Registration. The registration process includes inspection and approval. There is a 7-day minimum stay requirement and occupancy caps. Registration applications opened in October 2024; operations without a certificate became illegal in 2025.",
+    "effective_date": "2025-01-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.sarasotafl.gov/",
+    "source_type": "city_website",
+    "ordinance_number": "Ordinance 25-5560",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "San Juan County",
+  "type": "county",
+  "state": "WA",
+  "parent_county": null,
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": true,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "San Juan County DCD",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.sanjuancountywa.gov/1579/Vacation-Rentals-Information-and-Applica",
+    "notes": "San Juan County adopted island-by-island vacation rental caps (2022). No new vacation rental applications are currently being accepted. Existing operators (pre-June 25, 2025) must apply for a provisional use permit by June 25, 2026. Permit holders must notify neighbors within 300 feet, have an island-resident designated representative, and display permit numbers on all listings.",
+    "effective_date": "2022-05-17",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.sanjuancountywa.gov/1579/Vacation-Rentals-Information-and-Applica",
+    "source_type": "county_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

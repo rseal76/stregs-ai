@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "El Paso County (Unincorporated)",
+  "type": "county",
+  "state": "CO",
+  "parent_county": "El Paso County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": null,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": null,
+    "owner_occupied_required": null,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": null,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": null,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "El Paso County",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.elpasoco.com",
+    "notes": "Specific STR regulations for unincorporated El Paso County were not confirmed in research. Colorado Springs (city) has its own STR permit program. Verify current requirements with El Paso County.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.elpasoco.com",
+    "source_type": "county_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

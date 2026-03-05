@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Gilpin County (Unincorporated)",
+  "type": "county",
+  "state": "CO",
+  "parent_county": "Gilpin County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Gilpin County Community Development",
+    "enforcement_contact": null,
+    "enforcement_url": "https://gilpincounty.colorado.gov/departments-offices/community-development/short-term-rentals",
+    "notes": "STRs in unincorporated Gilpin County are regulated under County Ordinance 22-04 and Zoning Regulations. A 5% cap on housing units applies (excluding Black Hawk and Central City). Updated regulations were approved September 2024. A county license is required. Black Hawk (banned STRs) and Central City have their own rules. Gilpin County lodging tax increased from 2% to 6% (November 2025 ballot measure).",
+    "effective_date": "2022-01-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://gilpincounty.colorado.gov/departments-offices/community-development/short-term-rentals",
+    "source_type": "county_website",
+    "ordinance_number": "Ordinance 22-04",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

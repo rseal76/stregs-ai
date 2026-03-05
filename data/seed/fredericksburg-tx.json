@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Fredericksburg",
+  "type": "city",
+  "state": "TX",
+  "parent_county": "Gillespie County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": true,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": "2 per bedroom + 2, max 12 guests (2024 ordinance)",
+    "enforcement_body": "City of Fredericksburg Development Services",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.fbgtx.org/845/Short-Term-Rentals",
+    "notes": "All properties inside Fredericksburg city limits must have a permit (STR Ordinance effective Jan. 1, 2024). Occupancy limit is 2 per bedroom plus 2, maximum 12 guests. Properties in the ETJ (extraterritorial jurisdiction) do not need a city permit. Hotel Occupancy Tax must be collected. Inspections are required for permit issuance.",
+    "effective_date": "2024-01-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.fbgtx.org/845/Short-Term-Rentals",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

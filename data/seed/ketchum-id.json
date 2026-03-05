@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Ketchum (Sun Valley area)",
+  "type": "city",
+  "state": "ID",
+  "parent_county": "Blaine County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "pending_change",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Ketchum",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.ketchumidaho.org/administration/page/short-term-rentals",
+    "notes": "Ketchum requires a Short-Term Rental Permit for any rental of 30 days or less. 276 STR licenses were issued between June 2022 and April 2023. Annual renewal required. An Idaho House bill (as of early 2026) would restrict Ketchum's authority to regulate STRs, which would represent a major change. The Wood River Valley has ~840 STR units.",
+    "effective_date": null,
+    "pending_legislation": "Idaho HB to restrict local STR regulation authority (2026 session)"
+  },
+  "source": {
+    "primary_source_url": "https://www.ketchumidaho.org/administration/page/short-term-rentals",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

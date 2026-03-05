@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Clear Creek County (Unincorporated)",
+  "type": "county",
+  "state": "CO",
+  "parent_county": "Clear Creek County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Clear Creek County Planning and Building Services",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.co.clear-creek.co.us/910/Short-Term-Rentals",
+    "notes": "Clear Creek County adopted Ordinance 19 (December 17, 2024), replacing previous STR regulations. Non-Primary Resident STR permits are capped at 4.5% of total residential units (162 permits for 2025). Primary Resident permits have separate processing. A new fee schedule adopted December 9, 2024. STR owners must collect lodging and sales tax from guests. Idaho Springs and Georgetown have their own regulations within their town limits.",
+    "effective_date": "2024-12-17",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.co.clear-creek.co.us/910/Short-Term-Rentals",
+    "source_type": "county_website",
+    "ordinance_number": "Ordinance 19 (2024)",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

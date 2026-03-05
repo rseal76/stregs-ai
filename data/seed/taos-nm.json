@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Taos",
+  "type": "city",
+  "state": "NM",
+  "parent_county": "Taos County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Town of Taos / Taos County",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.taosnm.gov/427/Short-Term-Rentals",
+    "notes": "Town of Taos requires a Short-Term Rental Permit. Taos County adopted its own STR Ordinance 2024-4 on August 20, 2024 for unincorporated areas. An estimated 650-700 STRs are eligible for permits with ~700-800 currently operating. NM Gross Receipts Tax (CRS Number) is required for all operators.",
+    "effective_date": "2024-08-20",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.taosnm.gov/427/Short-Term-Rentals",
+    "source_type": "city_website",
+    "ordinance_number": "Taos County Ordinance 2024-4",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Teton County",
+  "type": "county",
+  "state": "WY",
+  "parent_county": null,
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": ["residential zones outside designated STR areas"],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": "required (parking plan required)",
+    "occupancy_limits": null,
+    "enforcement_body": "Teton County Planning & Development Department",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.tetoncountywy.gov/653/Short-Term-Rental-Violations",
+    "notes": "Teton County requires a permit from Planning & Development including floor plan, parking plan, and proof of ownership. LDR Section 6.1.4.A restricts most residential properties to minimum 31-day rentals. STR regulations are in LDR Section 6.1.5. The county actively enforces STR compliance to address workforce housing concerns.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.tetoncountywy.gov/653/Short-Term-Rental-Violations",
+    "source_type": "county_website",
+    "ordinance_number": "LDR Section 6.1.5",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

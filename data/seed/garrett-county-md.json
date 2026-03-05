@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Garrett County (Deep Creek Lake)",
+  "type": "county",
+  "state": "MD",
+  "parent_county": null,
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": true,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Garrett County Community Development",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.garrettcountymd.gov/community-development/planning-land-management/transient-vacation-rental-units-tvrus",
+    "notes": "Garrett County requires a TVRU (Transient Vacation Rental Unit) license for all STRs in the Deep Creek Lake Watershed Zoning District. Licenses are valid for 2 years. Hot tubs, pools, and spas must be maintained by a Maryland certified operator. Health Department inspection may be required. Maryland lodging tax collection required.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.garrettcountymd.gov/community-development/planning-land-management/transient-vacation-rental-units-tvrus",
+    "source_type": "county_website",
+    "ordinance_number": "TVRU Ordinance",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

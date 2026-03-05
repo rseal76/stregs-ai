@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Aurora",
+  "type": "city",
+  "state": "CO",
+  "parent_county": "Arapahoe County / Adams County / Douglas County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": false,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": true,
+    "owner_occupied_required": true,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": "Only one booking at a time per property",
+    "enforcement_body": "City of Aurora Code Enforcement",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.auroragov.org/residents/water/pay_my_water_bill/landlord_resources/short-term_vs__long-term_rental",
+    "notes": "Aurora allows STRs in residential areas as a 'home occupation,' which means only the resident of the home can operate the rental — you cannot rent short-term if the property is not your primary residence. A business license is required (for rentals under 30 days). Only one group of guests can book at a time. HOA rules may also prohibit STRs.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.auroragov.org/residents/water/pay_my_water_bill/landlord_resources/short-term_vs__long-term_rental",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

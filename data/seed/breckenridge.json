@@ -1,0 +1,42 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION \u2014 researched via web search. Review before publishing.",
+  "jurisdiction": "Breckenridge",
+  "type": "municipality",
+  "state": "CO",
+  "parent_county": "Summit County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [
+      "Zone 3 single-family residential (waitlisted/capped)"
+    ],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Town of Breckenridge Finance Department",
+    "enforcement_contact": "str@townofbreckenridge.com or 970-547-3101",
+    "enforcement_url": "https://www.townofbreckenridge.com/departments/finance/business-and-accommodation-unit-licenses/accommodation-unit-short-term-rentals-licenses",
+    "notes": "Breckenridge has four STR zones: Resort Properties Zone, Zone 1 (Tourism), Zone 2 (Downtown Core), and Zone 3 (Single-Family Residential). Licenses are capped per zone \u2014 Zone 3 is currently full with a waitlist; Zones 1 and 2 may have limited availability. Licenses are processed via MuniRevs. Check current availability at the town's interactive STR map before purchasing.",
+    "effective_date": "2022-01-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.townofbreckenridge.com/departments/finance/business-and-accommodation-unit-licenses/accommodation-unit-short-term-rentals-licenses",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

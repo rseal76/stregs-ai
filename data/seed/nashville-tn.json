@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Nashville",
+  "type": "city",
+  "state": "TN",
+  "parent_county": "Davidson County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": 120,
+    "permit_fee_one_time": 150,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": ["AR2A", "R", "RS", "RM"],
+    "license_required": true,
+    "inspection_required": true,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": "twice the number of permitted sleeping rooms plus 4, maximum 12",
+    "enforcement_body": "Metro Nashville Codes Department",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.nashville.gov/departments/codes/short-term-rentals",
+    "notes": "Nashville requires a permit for all STRs. There are two permit types: owner-occupied and non-owner-occupied. Non-owner-occupied permits are only allowed in commercial/mixed-use zones (MUN, MUL, MUG, MUI, OG, CN, CL, CS, CA, CF, DTC, SC districts) and are prohibited in residential zones (AR2A, R, RS, RM). Initial application fee is $150; annual renewal is $120. Occupancy is capped at twice the number of sleeping rooms plus 4, with a maximum of 12 guests.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.nashville.gov/departments/codes/short-term-rentals",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "South Lake Tahoe",
+  "type": "city",
+  "state": "CA",
+  "parent_county": "El Dorado County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": true,
+    "permit_cap_per_block": true,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": "required",
+    "occupancy_limits": null,
+    "enforcement_body": "City of South Lake Tahoe",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.cityofslt.us/",
+    "notes": "South Lake Tahoe has a VHR (Vacation Home Rental) permit system with caps per neighborhood/block to prevent saturation. The city restricts the density of VHRs in residential areas to preserve neighborhood character. A VHR permit, business license, and TOT registration are required. Parking minimums apply. The permit cap system means permits may not be available in all neighborhoods.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.cityofslt.us/",
+    "source_type": "city_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

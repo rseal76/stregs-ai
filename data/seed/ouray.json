@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Ouray",
+  "type": "city",
+  "state": "CO",
+  "parent_county": "Ouray County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": 120,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": ["R-1 single-family residential (except pre-existing legal non-conforming as of July 17, 2019)", "All ADUs"],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Ouray Community Development",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.cityofouray.com/city_offices/community_development_vs3/short-term_rentals.php",
+    "notes": "Ouray has a strict cap of 120 total STR licenses citywide. STRs are prohibited in R-1 districts (except properties with legal non-conforming status as of July 17, 2019) and in all ADUs. A voter-approved 15% excise tax applies to all STRs. Updated policies and regulations in November 2021 (Resolution 12 / Ordinance 7, Series 2021).",
+    "effective_date": "2021-11-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.cityofouray.com/city_offices/community_development_vs3/short-term_rentals.php",
+    "source_type": "city_website",
+    "ordinance_number": "Ordinance 7 (Series 2021); Ordinance 13 (Series 2021)",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

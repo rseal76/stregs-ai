@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION \u2014 researched via web search. Review before publishing.",
+  "jurisdiction": "Ridgway",
+  "type": "municipality",
+  "state": "CO",
+  "parent_county": "Ouray County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Town of Ridgway",
+    "enforcement_contact": null,
+    "enforcement_url": "https://townofridgway.colorado.gov",
+    "notes": "Ridgway has its own STR regulations separate from Ouray County. STR rules are in Ridgway Municipal Code (RMC 7-4-6(N) and RMC 8-5). Regulations were amended in 2025 (Ordinance 01-2025). Licenses are managed via MuniRevs. Not subject to Ouray County's 100-permit cap. Verify current fees and requirements with the Town of Ridgway.",
+    "effective_date": "2025-01-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://townofridgway.colorado.gov/i-want-to/administrative-information-and-forms",
+    "source_type": "city_website",
+    "ordinance_number": "Ordinance 01-2025 (amending STR regulations)",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

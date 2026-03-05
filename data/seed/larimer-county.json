@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Larimer County (Unincorporated)",
+  "type": "county",
+  "state": "CO",
+  "parent_county": "Larimer County",
+  "regulations": {
+    "allowed": "yes",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Larimer County Planning",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.larimer.gov/short-term-rentals",
+    "notes": "Larimer County requires an STR license ('Lodging Facilities in Residential Dwellings'). Starting January 1, 2026, a mandatory renewal fee of $250 is required every two years on the anniversary of the original license date. The county covers unincorporated areas — cities like Fort Collins and Loveland have their own rules.",
+    "effective_date": "2026-01-01",
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://www.larimer.gov/short-term-rentals",
+    "source_type": "county_website",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

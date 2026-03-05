@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Moab",
+  "type": "city",
+  "state": "UT",
+  "parent_county": "Grand County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "active",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": ["A-2", "C-1", "C-3", "C-5", "FW", "I-1", "R&D-1", "R-2", "R-3", "R-4", "RA-1"],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "City of Moab",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.moabcity.gov/",
+    "notes": "Moab prohibits residential STRs in most zones including R-2, R-3, R-4, and many others (MMC 17.09.700). STRs are only permitted in zones that specifically allow hotel/motel uses. Ordinance 2024-03 made amendments to certain commercial zone allowances. Operators must remit state and local transient room taxes.",
+    "effective_date": null,
+    "pending_legislation": null
+  },
+  "source": {
+    "primary_source_url": "https://moab.municipal.codes/Code/17.09.700",
+    "source_type": "municode",
+    "ordinance_number": "Ordinance 2024-03, MMC 17.09.700",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

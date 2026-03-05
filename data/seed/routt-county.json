@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Routt County (Unincorporated)",
+  "type": "county",
+  "state": "CO",
+  "parent_county": "Routt County",
+  "regulations": {
+    "allowed": "no",
+    "status": "banned",
+    "permit_required": false,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": null,
+    "owner_occupied_required": null,
+    "max_days_per_year": 0,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": ["all residential zones"],
+    "license_required": false,
+    "inspection_required": null,
+    "insurance_required": null,
+    "noise_ordinance_applicable": null,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Routt County",
+    "enforcement_contact": null,
+    "enforcement_url": null,
+    "notes": "Short-term rentals are banned in unincorporated Routt County except in commercially-zoned areas or where a permit has been issued for a specific use such as a bed & breakfast or guest ranch. Despite the ban, some STRs operate illegally. Steamboat Springs (city) has its own separate STR licensing system. Updated regulations were expected to be drafted sometime in 2024 or 2025.",
+    "effective_date": null,
+    "pending_legislation": "Updated regulations expected 2024–2025"
+  },
+  "source": {
+    "primary_source_url": "https://cl.cobar.org/features/the-state-of-short-term-rentals-in-colorado/",
+    "source_type": "general_code",
+    "ordinance_number": null,
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}

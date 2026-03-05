@@ -1,0 +1,40 @@
+{
+  "_note": "NEEDS HUMAN VERIFICATION — researched via web search. Review before publishing.",
+  "jurisdiction": "Lahaina",
+  "type": "city",
+  "state": "HI",
+  "parent_county": "Maui County",
+  "regulations": {
+    "allowed": "conditional",
+    "status": "pending_change",
+    "permit_required": true,
+    "permit_fee_annual": null,
+    "permit_fee_one_time": null,
+    "primary_residence_required": false,
+    "owner_occupied_required": false,
+    "max_days_per_year": null,
+    "permit_cap_citywide": null,
+    "permit_cap_per_block": null,
+    "prohibited_zone_types": [],
+    "license_required": true,
+    "inspection_required": false,
+    "insurance_required": false,
+    "noise_ordinance_applicable": true,
+    "parking_requirements": null,
+    "occupancy_limits": null,
+    "enforcement_body": "Maui County Department of Planning",
+    "enforcement_contact": null,
+    "enforcement_url": "https://www.mauicounty.gov/1874/Short-Term-Rental-Home-STRH-Application",
+    "notes": "Lahaina was largely destroyed in the August 2023 wildfire disaster. Maui County's STR regulations (STRH permits under County Code Chapter 19.65) apply. The Lahaina area is undergoing extensive post-fire rebuilding, and STR regulations may be modified as part of recovery planning.",
+    "effective_date": null,
+    "pending_legislation": "Lahaina recovery planning may affect STR rules"
+  },
+  "source": {
+    "primary_source_url": "https://www.mauicounty.gov/1874/Short-Term-Rental-Home-STRH-Application",
+    "source_type": "county_website",
+    "ordinance_number": "Maui County Code Chapter 19.65",
+    "human_verified": false,
+    "human_verified_date": null,
+    "last_verified": "2026-03-04"
+  }
+}
