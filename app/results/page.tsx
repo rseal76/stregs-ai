@@ -122,6 +122,7 @@ function ResultsContent() {
 
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState<RegulationResult | null>(null);
+  const [notFoundMessage, setNotFoundMessage] = useState<string | null>(null);
   const [email, setEmail] = useState('');
   const [alertSent, setAlertSent] = useState(false);
 
@@ -144,6 +145,7 @@ function ResultsContent() {
       .then(data => {
         if (data.found === false) {
           setResult(null);
+          setNotFoundMessage(data.message || null);
         } else {
           setResult(data as RegulationResult);
         }
@@ -166,14 +168,23 @@ function ResultsContent() {
 
   if (!result) {
     return (
-      <div className="max-w-2xl mx-auto px-4 py-12 text-center">
-        <p className="text-slate-400">
-          Jurisdiction not found for this address. Try a different address or{' '}
-          <a href="/" className="text-orange-400 underline">
-            search again
-          </a>
-          .
+      <div className="max-w-2xl mx-auto px-4 py-12 text-center max-w-lg mx-auto">
+        <div className="text-4xl mb-4">📍</div>
+        <h2 className="text-white font-semibold text-lg mb-2">Not in our database yet</h2>
+        <p className="text-slate-400 text-sm mb-6">
+          {notFoundMessage || "We couldn't find STR regulations for that address. We're expanding coverage constantly."}
         </p>
+        <div className="bg-white/5 border border-white/10 rounded-xl p-4 mb-6 text-left">
+          <p className="text-xs text-slate-500 mb-2 uppercase tracking-wide font-medium">What you can do</p>
+          <ul className="space-y-2 text-sm text-slate-300">
+            <li>→ Try a nearby larger city (e.g. "Rockford, IL" instead of Byron)</li>
+            <li>→ Check your county seat — county rules often apply</li>
+            <li>→ <a href="/" className="text-orange-400 hover:underline">Search a different address</a></li>
+          </ul>
+        </div>
+        <a href="/coverage" className="text-xs text-slate-500 hover:text-slate-300 underline">
+          See our full coverage map →
+        </a>
       </div>
     );
   }
