@@ -131,8 +131,8 @@ export default function CoveragePage() {
           >
             <ZoomableGroup>
               <Geographies geography={GEO_URL}>
-                {({ geographies }) =>
-                  geographies.map((geo) => {
+                {({ geographies }: { geographies: any[] }) =>
+                  geographies.map((geo: any) => {
                     const fips = geo.id as string;
                     const stateCode = FIPS[fips] || '';
                     const hasData = !!coverageData[stateCode];
@@ -152,7 +152,7 @@ export default function CoveragePage() {
                           },
                           pressed: { outline: 'none' },
                         }}
-                        onMouseMove={(e) => handleMouseMove(e as unknown as React.MouseEvent, stateCode)}
+                        onMouseMove={(e: any) => handleMouseMove(e as React.MouseEvent, stateCode)}
                         onMouseLeave={() => setTooltip(null)}
                       />
                     );
