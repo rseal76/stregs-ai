@@ -463,12 +463,30 @@ function ResultsContent() {
         <StatusBadge status={result.status} />
       </div>
 
-      {/* Plain English Summary */}
+      {/* Plain English Summary — gated for paid users */}
       <div className="bg-white/5 border border-white/10 rounded-xl p-5 mb-6">
         <h2 className="text-sm font-semibold text-slate-300 uppercase tracking-wide mb-3">
           Plain English Summary
         </h2>
-        <p className="text-white leading-relaxed">{result.summary}</p>
+        {isPaid ? (
+          <p className="text-white leading-relaxed">{result.summary}</p>
+        ) : (
+          <div>
+            <p className="text-white leading-relaxed mb-3">
+              {result.status === 'allowed' && 'STRs are permitted in this jurisdiction.'}
+              {result.status === 'conditional' && `STRs are allowed with conditions${result.permitRequired ? ' — a permit is required' : ''}.`}
+              {result.status === 'not_allowed' && 'STRs are not currently permitted in this jurisdiction.'}
+              {!['allowed','conditional','not_allowed'].includes(result.status) && 'Regulations apply to this jurisdiction.'}
+              {' '}Upgrade to Standard for the full breakdown including permit fees, zone restrictions, and occupancy rules.
+            </p>
+            <a
+              href="/api/stripe/checkout/standard"
+              className="inline-block text-xs bg-orange-500/20 hover:bg-orange-500 border border-orange-500/40 hover:border-orange-500 text-orange-300 hover:text-white font-medium rounded-lg px-4 py-2 transition-all"
+            >
+              Unlock full summary for $19/mo →
+            </a>
+          </div>
+        )}
       </div>
 
       {/* Regulation Details */}
