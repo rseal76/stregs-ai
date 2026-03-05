@@ -124,9 +124,7 @@ function ResultsContent() {
   const [result, setResult] = useState<RegulationResult | null>(null);
   const [email, setEmail] = useState('');
   const [alertSent, setAlertSent] = useState(false);
-  const [showPaywall, setShowPaywall] = useState(false);
-  const [paywallEmail, setPaywallEmail] = useState('');
-  const [paywallSubmitted, setPaywallSubmitted] = useState(false);
+
   const printRef = useRef<HTMLDivElement>(null);
 
   function handleDownload() {
@@ -134,10 +132,6 @@ function ResultsContent() {
     window.print();
   }
 
-  function handleSaveReport() {
-    // $5 paid report — show paywall modal (Stripe TBD)
-    setShowPaywall(true);
-  }
 
   useEffect(() => {
     if (!address) { setLoading(false); return; }
@@ -189,36 +183,6 @@ function ResultsContent() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-10" ref={printRef}>
 
-      {/* $5 Paywall Modal */}
-      {showPaywall && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 px-4" onClick={() => setShowPaywall(false)}>
-          <div className="bg-[#1e293b] border border-white/10 rounded-2xl p-6 max-w-sm w-full" onClick={e => e.stopPropagation()}>
-            <h3 className="text-lg font-bold text-white mb-1">Save Full Report — $5</h3>
-            <p className="text-slate-400 text-sm mb-4">
-              Get a permanent, shareable PDF — perfect for lenders, partners, and due diligence. Includes source citations and last-verified dates.
-            </p>
-            {paywallSubmitted ? (
-              <p className="text-green-400 text-sm text-center py-2">✅ You&apos;re on the list — we&apos;ll email you when paid reports launch.</p>
-            ) : (
-              <>
-                <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg px-3 py-2 mb-4 text-center">
-                  <span className="text-orange-400 text-xs font-medium">🚀 Launching soon — enter your email to be first</span>
-                </div>
-                <input
-                  type="email" value={paywallEmail} onChange={e => setPaywallEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white placeholder-slate-500 text-sm mb-3 focus:outline-none focus:border-orange-400/60"
-                />
-                <button onClick={() => { if (paywallEmail) setPaywallSubmitted(true); }}
-                  className="w-full bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-lg py-2.5 text-sm transition-colors mb-2">
-                  Notify me when it launches
-                </button>
-                <button onClick={() => setShowPaywall(false)} className="w-full text-slate-500 text-xs hover:text-slate-300 py-1">Cancel</button>
-              </>
-            )}
-          </div>
-        </div>
-      )}
 
       {/* Back link */}
       <a href="/" className="text-sm text-slate-500 hover:text-slate-300 transition-colors mb-6 inline-block print:hidden">
@@ -246,10 +210,7 @@ function ResultsContent() {
             className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-300 hover:text-white border border-white/10 hover:border-white/20 rounded-lg px-3 py-1.5 transition-colors">
             ⬇ Download PDF
           </button>
-          <button onClick={handleSaveReport}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold bg-orange-500/20 hover:bg-orange-500/30 text-orange-400 border border-orange-500/30 rounded-lg px-3 py-1.5 transition-colors">
-            💾 Save Report — $5
-          </button>
+
         </div>
       </div>
 
