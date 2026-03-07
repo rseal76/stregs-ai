@@ -96,18 +96,24 @@ function normalizeCityName(raw: string): string[] {
     .replace(/\s*metropolitan government/i, '')
     .replace(/\s*consolidated government/i, '')
     .replace(/\s*unified government/i, '')
+    .replace(/\s*city and county of\s*/i, '')
     .replace(/\s*city and county/i, '')
+    // Strip Census suffixes like "San Francisco city" → "San Francisco"
+    .replace(/\s+city$/i, '')
+    .replace(/\s+town$/i, '')
+    .replace(/\s+village$/i, '')
+    .replace(/\s+borough$/i, '')
+    .replace(/\s+township$/i, '')
     .trim();
 
   const candidates = [cleaned];
 
+  // Only split on hyphen for compound names (e.g. "Winston-Salem" → ["Winston-Salem", "Winston"])
   if (cleaned.includes('-')) {
     candidates.push(cleaned.split('-')[0].trim());
   }
 
-  if (cleaned.includes(' ')) {
-    candidates.push(cleaned.split(' ')[0].trim());
-  }
+  // Do NOT split on spaces — "San Francisco".split(' ')[0] = "San" which is too aggressive
 
   return [...new Set(candidates)];
 }
