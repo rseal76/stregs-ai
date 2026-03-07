@@ -151,6 +151,29 @@ async function lookupRegulations(jurisdictionId: string) {
   return rows?.[0] ?? null;
 }
 
+// ── Zip code → jurisdiction overrides ────────────────────────────────────
+// For markets where the Census geocoder returns wrong/missing city names.
+// Format: zip → { jurisdiction: DB name, state: 2-letter code }
+const ZIP_OVERRIDES: Record<string, { jurisdiction: string; state: string }> = {
+  // Tennessee
+  '37863': { jurisdiction: 'Pigeon Forge', state: 'TN' },
+  '37862': { jurisdiction: 'Pigeon Forge', state: 'TN' },
+  '37764': { jurisdiction: 'Pigeon Forge', state: 'TN' },
+  // Florida — 30A / South Walton
+  '32459': { jurisdiction: 'South Walton', state: 'FL' },
+  '32461': { jurisdiction: 'South Walton', state: 'FL' },
+  // Florida — Panama City Beach
+  '32413': { jurisdiction: 'Panama City Beach', state: 'FL' },
+  '32408': { jurisdiction: 'Panama City Beach', state: 'FL' },
+  // Florida — 30A unincorporated
+  '32550': { jurisdiction: 'South Walton', state: 'FL' },
+};
+
+function extractZipFromAddress(address: string): string | null {
+  const match = address.match(/\b(\d{5})(?:-\d{4})?\b/);
+  return match?.[1] ?? null;
+}
+
 // ── Route handler ──────────────────────────────────────────────────────────
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => ({}));
@@ -187,11 +210,18 @@ export async function POST(request: NextRequest) {
 
   console.log(`[lookup] Geocoded: city="${geo.city}" county="${geo.county}" state="${geo.stateCode}" tier="${tier}"`);
 
-  // Step 2: Try to match city first, then county fallback
+  // Step 2a: Check zip code overrides first (for unincorporated tourist markets)
   let jurisdiction = null;
   let matchedBy = '';
 
-  if (geo.city) {
+  const zip = extractZipFromAddress(address);
+  if (zip && ZIP_OVERRIDES[zip]) {
+    const override = ZIP_OVERRIDES[zip];
+    jurisdiction = await lookupJurisdiction(override.jurisdiction, override.state);
+    if (jurisdiction) matchedBy = 'zip-override';
+  }
+
+  if (!jurisdiction && geo.city) {
     const cityCandidates = normalizeCityName(geo.city);
     for (const candidate of cityCandidates) {
       jurisdiction = await lookupJurisdiction(candidate, geo.stateCode);
