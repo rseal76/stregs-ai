@@ -474,7 +474,7 @@ function ResultsContent() {
           <div>
             <p className="text-white leading-relaxed mb-3">
               {result.status === 'allowed' && 'STRs are permitted in this jurisdiction.'}
-              {result.status === 'conditional' && `STRs are allowed with conditions${result.permitRequired ? ' — a permit is required' : ''}.`}
+              {result.status === 'conditional' && `STRs are allowed with conditions${result.details?.permitRequired ? ' — a permit is required' : ''}.`}
               {result.status === 'not_allowed' && 'STRs are not currently permitted in this jurisdiction.'}
               {!['allowed','conditional','not_allowed'].includes(result.status) && 'Regulations apply to this jurisdiction.'}
               {' '}Upgrade to Standard for the full breakdown including permit fees, zone restrictions, and occupancy rules.
