@@ -24,7 +24,7 @@ export default function HomePage() {
   // Debounced autocomplete fetch
   useEffect(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current);
-    if (address.length < 4) { setSuggestions([]); return; }
+    if (address.length < 3) { setSuggestions([]); return; }
 
     debounceRef.current = setTimeout(async () => {
       try {
@@ -34,7 +34,7 @@ export default function HomePage() {
         setShowSuggestions(data.length > 0);
         setActiveSuggestion(-1);
       } catch { /* silent fail */ }
-    }, 300);
+    }, 150);
   }, [address]);
 
   function handleSubmit(e: FormEvent) {

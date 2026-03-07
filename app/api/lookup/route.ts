@@ -114,7 +114,8 @@ function normalizeCityName(raw: string): string[] {
 
 // ── Supabase jurisdiction lookup ──────────────────────────────────────────
 async function lookupJurisdiction(name: string, stateCode: string) {
-  const encoded = encodeURIComponent(name);
+  // Use wildcard prefix match so "Park County" matches "Park County (Unincorporated)" etc.
+  const encoded = encodeURIComponent(`${name}*`);
   const url = `${SUPABASE_URL}/rest/v1/jurisdictions?name=ilike.${encoded}&state=eq.${stateCode}&select=id,name,type,state,parent_county&limit=1`;
 
   const res = await fetch(url, {
