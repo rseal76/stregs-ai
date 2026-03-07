@@ -144,7 +144,8 @@ async function lookupRegulations(jurisdictionId: string) {
       apikey: SUPABASE_SERVICE_KEY,
       Authorization: `Bearer ${SUPABASE_SERVICE_KEY}`,
     },
-    next: { revalidate: 3600 },
+    // No cache — regulation data must always be fresh (especially after DB updates)
+    cache: 'no-store',
   });
 
   const rows = await res.json();
