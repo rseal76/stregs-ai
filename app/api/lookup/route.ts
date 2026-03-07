@@ -167,6 +167,17 @@ const ZIP_OVERRIDES: Record<string, { jurisdiction: string; state: string }> = {
   '32408': { jurisdiction: 'Panama City Beach', state: 'FL' },
   // Florida — 30A unincorporated
   '32550': { jurisdiction: 'South Walton', state: 'FL' },
+  // Florida — Florida Keys / Islamorada (Monroe County)
+  '33036': { jurisdiction: 'Monroe County', state: 'FL' },
+  '33070': { jurisdiction: 'Monroe County', state: 'FL' },
+  // Florida — Anna Maria Island / Holmes Beach
+  '34217': { jurisdiction: 'Holmes Beach', state: 'FL' },
+  '34216': { jurisdiction: 'Holmes Beach', state: 'FL' },
+  // North Carolina — Boone (Census geocodes "100 Main St" to Lenoir instead)
+  '28607': { jurisdiction: 'Boone', state: 'NC' },
+  '28608': { jurisdiction: 'Boone', state: 'NC' },
+  // Oregon — Government Camp / Mt Hood (Clackamas County)
+  '97028': { jurisdiction: 'Clackamas County', state: 'OR' },
 };
 
 function extractZipFromAddress(address: string): string | null {
