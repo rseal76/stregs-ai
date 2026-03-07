@@ -113,6 +113,11 @@ export default function AccountPage() {
           <a href="/" className="text-sm text-slate-400 hover:text-white transition-colors">
             ← Search
           </a>
+          {(tier === 'standard' || tier === 'pro') && (
+            <a href="/dashboard" className="text-sm text-slate-400 hover:text-white transition-colors">
+              Dashboard
+            </a>
+          )}
           <button
             onClick={handleSignOut}
             className="text-sm text-slate-500 hover:text-white transition-colors"

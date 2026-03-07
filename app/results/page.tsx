@@ -114,13 +114,13 @@ function ComplianceActionPlan({
           </div>
         </div>
         <p className="text-slate-500 text-sm mt-2 mb-3">
-          A step-by-step compliance checklist tailored to this jurisdiction.
+          Your personalized compliance checklist — permit steps, fees, inspection requirements, and what to watch for in this jurisdiction.
         </p>
         <a
           href="/pricing"
           className="inline-block bg-orange-500 hover:bg-orange-400 text-white text-xs font-semibold rounded-lg px-4 py-2 transition-colors"
         >
-          Unlock compliance plan with Standard →
+          Unlock compliance checklist — $19/mo →
         </a>
       </div>
     );
@@ -483,7 +483,7 @@ function ResultsContent() {
               href="/api/stripe/checkout/standard"
               className="inline-block text-xs bg-orange-500/20 hover:bg-orange-500 border border-orange-500/40 hover:border-orange-500 text-orange-300 hover:text-white font-medium rounded-lg px-4 py-2 transition-all"
             >
-              Unlock full summary for $19/mo →
+              Unlock full report — permit fees, zone caps, occupancy limits + compliance checklist. $19/mo →
             </a>
           </div>
         )}
@@ -546,12 +546,12 @@ function ResultsContent() {
 
             {/* Upgrade CTA */}
             <div className="mt-4 pt-3 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
-              <p className="text-xs text-slate-400">🔒 Unlock all details with a Standard or Pro plan</p>
+              <p className="text-xs text-slate-400">🔒 See permit fees, zone restrictions, occupancy limits, and a step-by-step compliance checklist</p>
               <a
                 href="/pricing"
                 className="shrink-0 bg-orange-500 hover:bg-orange-400 text-white text-xs font-semibold rounded-lg px-5 py-2 transition-colors whitespace-nowrap"
               >
-                Unlock for $19/mo →
+                Unlock full report — $19/mo →
               </a>
             </div>
           </>
@@ -632,6 +632,9 @@ export default function ResultsPage() {
           </a>
           <a href="/pricing" className="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">
             Pricing
+          </a>
+          <a href="/dashboard" className="text-sm text-slate-400 hover:text-white transition-colors hidden sm:block">
+            Dashboard
           </a>
           <NavAuth />
         </div>
