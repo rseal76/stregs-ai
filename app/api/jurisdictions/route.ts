@@ -1,97 +1,32 @@
 import { NextResponse } from 'next/server';
 
-// Phase 1: 10 Denver metro jurisdictions
-// Status reflects current STR regulatory posture as of Feb 2026
-// TODO: replace with live Supabase query when data pipeline is built
-
-const JURISDICTIONS = [
-  {
-    name: 'Denver',
-    type: 'city',
-    county: 'Denver County',
-    status: 'conditional',
-    summary: 'License required. Primary residence only.',
-    complexity: 'medium',
-  },
-  {
-    name: 'Arvada',
-    type: 'city',
-    county: 'Jefferson County',
-    status: 'conditional',
-    summary: 'License required. Jefferson County overlap adds complexity.',
-    complexity: 'high',
-  },
-  {
-    name: 'Lakewood',
-    type: 'city',
-    county: 'Jefferson County',
-    status: 'conditional',
-    summary: 'Owner-occupant license required.',
-    complexity: 'medium',
-  },
-  {
-    name: 'Westminster',
-    type: 'city',
-    county: 'Adams/Jefferson County split',
-    status: 'conditional',
-    summary: 'Split county jurisdiction — regulations vary by parcel.',
-    complexity: 'high',
-  },
-  {
-    name: 'Littleton',
-    type: 'city',
-    county: 'Arapahoe/Jefferson/Douglas County split',
-    status: 'conditional',
-    summary: 'Three-county overlap — most complex in metro.',
-    complexity: 'high',
-  },
-  {
-    name: 'Brighton',
-    type: 'city',
-    county: 'Adams County',
-    status: 'allowed',
-    summary: 'Generally permitted. Verify current requirements.',
-    complexity: 'low',
-  },
-  {
-    name: 'Thornton',
-    type: 'city',
-    county: 'Adams County',
-    status: 'conditional',
-    summary: 'License required. Adams County regulations apply.',
-    complexity: 'medium',
-  },
-  {
-    name: 'Aurora',
-    type: 'city',
-    county: 'Arapahoe/Adams/Douglas County split',
-    status: 'conditional',
-    summary: 'Three-county split. License required in most zones.',
-    complexity: 'high',
-  },
-  {
-    name: 'Englewood',
-    type: 'city',
-    county: 'Arapahoe County',
-    status: 'conditional',
-    summary: 'License and primary residence requirement.',
-    complexity: 'medium',
-  },
-  {
-    name: 'Commerce City',
-    type: 'city',
-    county: 'Adams County',
-    status: 'allowed',
-    summary: 'Permitted with standard business license.',
-    complexity: 'low',
-  },
-];
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
 export async function GET() {
-  return NextResponse.json({
-    jurisdictions: JURISDICTIONS,
-    count: JURISDICTIONS.length,
-    lastUpdated: '2026-02-24',
-    phase: 'Denver Metro Phase 1',
-  });
+  try {
+    // Get live count from Supabase
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/jurisdictions?select=count`,
+      {
+        headers: {
+          apikey: SUPABASE_SERVICE_KEY,
+          Authorization: `Bearer ${SUPABASE_SERVICE_KEY}`,
+          'Prefer': 'count=exact',
+        },
+        next: { revalidate: 3600 },
+      }
+    );
+
+    const countHeader = res.headers.get('content-range');
+    // content-range: 0-999/1000 — extract total
+    const total = countHeader ? parseInt(countHeader.split('/')[1]) : null;
+
+    return NextResponse.json({
+      count: total ?? 1000,
+      lastUpdated: new Date().toISOString().split('T')[0],
+    });
+  } catch {
+    return NextResponse.json({ count: 1000 });
+  }
 }

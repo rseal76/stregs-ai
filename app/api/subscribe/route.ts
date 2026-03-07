@@ -45,8 +45,27 @@ async function addToBeehiiv(email: string, source: string): Promise<boolean> {
   }
 }
 
-// TODO: add Supabase insert when DB is wired up
-// async function insertToSupabase(email: string, source: string, address?: string) { ... }
+async function insertToSupabase(email: string, source: string, address?: string, jurisdiction?: string): Promise<boolean> {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (!url || !key) return false;
+
+  try {
+    const res = await fetch(`${url}/rest/v1/email_subscribers`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        apikey: key,
+        Authorization: `Bearer ${key}`,
+        Prefer: 'resolution=merge-duplicates',
+      },
+      body: JSON.stringify({ email, source, address: address ?? null, jurisdiction: jurisdiction ?? null }),
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
 
 export async function POST(request: NextRequest) {
   let body: Partial<SubscribeRequest> = {};
@@ -60,15 +79,14 @@ export async function POST(request: NextRequest) {
   const source = body.source || 'general';
   console.log(`[subscribe] ${email} | source: ${source} | address: ${body.address || 'n/a'}`);
 
-  // Try Beehiiv first
-  const beehiivOk = await addToBeehiiv(email, source);
+  // Try Beehiiv + Supabase in parallel
+  const [beehiivOk] = await Promise.all([
+    addToBeehiiv(email, source),
+    insertToSupabase(email, source, body.address, body.jurisdiction),
+  ]);
 
-  // Always return success to the user — don't expose backend failures
   return NextResponse.json({
     success: true,
-    beehiiv: beehiivOk,
-    message: beehiivOk
-      ? "You're subscribed! We'll notify you when regulations change."
-      : "Got it — we'll be in touch.",
+    message: "You're on the list — we'll notify you when regulations change.",
   });
 }
