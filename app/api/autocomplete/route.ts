@@ -1,43 +1,85 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Free address autocomplete via Nominatim (OpenStreetMap)
-// No API key required. Rate limit: 1 req/sec (handled by debounce on frontend)
-// TODO: swap for Google Places Autocomplete API when key is available —
-// better results, especially for partial street addresses
-
+/**
+ * Address autocomplete — fast, national, no API key required.
+ *
+ * Strategy:
+ *  1. Nominatim with no state bias, US-only, 5-result limit
+ *  2. 300s cache on server (Nominatim results are stable enough)
+ *  3. Parallel requests not needed — single clean request
+ *
+ * Format returned: "123 Main St, Denver, CO 80203"
+ */
 export async function GET(request: NextRequest) {
-  const q = request.nextUrl.searchParams.get('q');
-  if (!q || q.length < 4) return NextResponse.json([]);
+  const q = request.nextUrl.searchParams.get('q')?.trim();
+  if (!q || q.length < 3) return NextResponse.json([]);
 
   try {
-    const query = encodeURIComponent(`${q}, Colorado, USA`);
-    const url = `https://nominatim.openstreetmap.org/search?q=${query}&format=json&limit=5&countrycodes=us&addressdetails=1`;
+    const url = `https://nominatim.openstreetmap.org/search?` +
+      new URLSearchParams({
+        q: `${q}, USA`,
+        format: 'json',
+        limit: '6',
+        countrycodes: 'us',
+        addressdetails: '1',
+        featuretype: 'house',
+      });
 
     const res = await fetch(url, {
-      headers: { 'User-Agent': 'STRegs.ai/1.0 (address-lookup)' },
-      next: { revalidate: 60 },
+      headers: { 'User-Agent': 'STRegs.ai/1.0 (contact: operations@chromahomedesigns.com)' },
+      next: { revalidate: 300 }, // 5-min cache — stable results, reduces Nominatim load
     });
 
+    if (!res.ok) return NextResponse.json([]);
     const data = await res.json();
 
-    // Extract house number from user's query (e.g. "7801" from "7801 zuni st")
-    const houseNumberMatch = q.trim().match(/^(\d+)\s+/);
-    const inputHouseNumber = houseNumberMatch ? houseNumberMatch[1] : null;
+    // Extract house number typed by user — fallback for Nominatim gaps
+    const houseMatch = q.match(/^(\d+)\s+/);
+    const inputHouseNum = houseMatch?.[1] ?? null;
 
-    const suggestions = data
-      .filter((r: { address?: { state?: string } }) => r.address?.state === 'Colorado')
-      .map((r: { display_name?: string; address?: { house_number?: string; road?: string; city?: string; town?: string; village?: string; county?: string; postcode?: string; state?: string } }) => {
-        const a = r.address || {};
-        // Use house number from Nominatim if available, otherwise use the one from user input
-        const houseNum = a.house_number || inputHouseNumber || '';
-        const street = a.road || '';
-        const streetWithNum = houseNum && street ? `${houseNum} ${street}` : (street || '');
-        const city = a.city || a.town || a.village || '';
-        const parts = [streetWithNum, city, a.state, a.postcode].filter(Boolean);
-        return parts.join(', ');
+    const STATE_ABBR: Record<string, string> = {
+      Alabama:'AL',Alaska:'AK',Arizona:'AZ',Arkansas:'AR',California:'CA',Colorado:'CO',
+      Connecticut:'CT',Delaware:'DE','District of Columbia':'DC',Florida:'FL',Georgia:'GA',
+      Hawaii:'HI',Idaho:'ID',Illinois:'IL',Indiana:'IN',Iowa:'IA',Kansas:'KS',Kentucky:'KY',
+      Louisiana:'LA',Maine:'ME',Maryland:'MD',Massachusetts:'MA',Michigan:'MI',Minnesota:'MN',
+      Mississippi:'MS',Missouri:'MO',Montana:'MT',Nebraska:'NE',Nevada:'NV','New Hampshire':'NH',
+      'New Jersey':'NJ','New Mexico':'NM','New York':'NY','North Carolina':'NC','North Dakota':'ND',
+      Ohio:'OH',Oklahoma:'OK',Oregon:'OR',Pennsylvania:'PA','Rhode Island':'RI','South Carolina':'SC',
+      'South Dakota':'SD',Tennessee:'TN',Texas:'TX',Utah:'UT',Vermont:'VT',Virginia:'VA',
+      Washington:'WA','West Virginia':'WV',Wisconsin:'WI',Wyoming:'WY',
+      'Puerto Rico':'PR',
+    };
+
+    interface NominatimResult {
+      address?: {
+        house_number?: string;
+        road?: string;
+        city?: string;
+        town?: string;
+        village?: string;
+        county?: string;
+        postcode?: string;
+        state?: string;
+      };
+    }
+
+    const suggestions = (data as NominatimResult[])
+      .map((r) => {
+        const a = r.address ?? {};
+        const houseNum = a.house_number ?? inputHouseNum ?? '';
+        const street = a.road ?? '';
+        const city = a.city ?? a.town ?? a.village ?? '';
+        const stateAbbr = a.state ? (STATE_ABBR[a.state] ?? a.state) : '';
+        const zip = a.postcode ?? '';
+
+        if (!street || !city || !stateAbbr) return null;
+
+        const streetLine = houseNum ? `${houseNum} ${street}` : street;
+        const parts = [streetLine, city, zip ? `${stateAbbr} ${zip}` : stateAbbr];
+        return parts.filter(Boolean).join(', ');
       })
-      .filter((s: string) => s.length > 0)
-      .filter((s: string, i: number, arr: string[]) => arr.indexOf(s) === i); // dedupe
+      .filter((s): s is string => !!s && s.length > 0)
+      .filter((s, i, arr) => arr.indexOf(s) === i); // dedupe
 
     return NextResponse.json(suggestions);
   } catch {
