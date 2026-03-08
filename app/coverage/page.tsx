@@ -58,7 +58,10 @@ export default function CoveragePage() {
   const getColor = useCallback((stateCode: string) => {
     const s = coverageData[stateCode];
     if (!s || s.total === 0) return '#1e293b'; // no coverage — dark slate
-    return '#f97316'; // covered — orange
+    // Color by dominant regulation posture
+    if (s.banned > s.total * 0.3) return '#ef4444'; // >30% banned — red
+    if (s.allowed > s.total * 0.5) return '#22c55e'; // >50% allowed — green
+    return '#f97316'; // mostly conditional — orange
   }, [coverageData]);
 
   const handleMouseMove = useCallback((e: React.MouseEvent, stateCode: string) => {
@@ -115,9 +118,11 @@ export default function CoveragePage() {
         )}
 
         {/* Legend */}
-        <div className="flex justify-center gap-6 mb-6 text-xs text-slate-400">
-          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-orange-500 inline-block" /> In our database</span>
-          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-slate-700 inline-block" /> Not yet covered</span>
+        <div className="flex flex-wrap justify-center gap-5 mb-6 text-xs text-slate-400">
+          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-green-500 inline-block" /> Mostly allowed</span>
+          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-orange-500 inline-block" /> Mostly conditional</span>
+          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-red-500 inline-block" /> Heavily restricted</span>
+          <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm bg-slate-700 inline-block" /> No data</span>
         </div>
 
         {/* Map */}
@@ -149,7 +154,7 @@ export default function CoveragePage() {
                           default: { outline: 'none', cursor: hasData ? 'pointer' : 'default' },
                           hover: {
                             outline: 'none',
-                            fill: hasData ? '#fb923c' : '#334155',
+                            fill: hasData ? '#cbd5e1' : '#334155',
                             cursor: hasData ? 'pointer' : 'default',
                           },
                           pressed: { outline: 'none' },

@@ -192,6 +192,33 @@ export default function AccountPage() {
           </div>
         </div>
 
+        {/* Quick links */}
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mt-4">
+          <h2 className="text-sm font-semibold text-slate-300 uppercase tracking-wide mb-4">
+            Quick Links
+          </h2>
+          <div className="space-y-2">
+            <a href="/" className="flex items-center justify-between py-2 text-sm text-slate-300 hover:text-white transition-colors group">
+              <span>🔍 Search an address</span>
+              <span className="text-slate-600 group-hover:text-slate-400">→</span>
+            </a>
+            {(tier === 'standard' || tier === 'pro') && (
+              <a href="/dashboard" className="flex items-center justify-between py-2 text-sm text-slate-300 hover:text-white transition-colors border-t border-white/5 group">
+                <span>📊 Property dashboard</span>
+                <span className="text-slate-600 group-hover:text-slate-400">→</span>
+              </a>
+            )}
+            <a href="/coverage" className="flex items-center justify-between py-2 text-sm text-slate-300 hover:text-white transition-colors border-t border-white/5 group">
+              <span>🗺️ Coverage map</span>
+              <span className="text-slate-600 group-hover:text-slate-400">→</span>
+            </a>
+            <a href="/pricing" className="flex items-center justify-between py-2 text-sm text-slate-300 hover:text-white transition-colors border-t border-white/5 group">
+              <span>💳 Pricing &amp; plans</span>
+              <span className="text-slate-600 group-hover:text-slate-400">→</span>
+            </a>
+          </div>
+        </div>
+
         {/* Upgrade prompts for free users */}
         {tier === 'free' && (
           <div className="mt-4 bg-orange-500/10 border border-orange-500/20 rounded-2xl p-5">
@@ -200,7 +227,7 @@ export default function AccountPage() {
               <li>✓ Full regulation details (fees, caps, inspection requirements)</li>
               <li>✓ Permit application links</li>
               <li>✓ Step-by-step compliance action plan</li>
-              <li>✓ Regulation change alerts</li>
+              <li>✓ Regulation change alerts for up to 5 properties</li>
             </ul>
             <a
               href="/api/stripe/checkout/standard"

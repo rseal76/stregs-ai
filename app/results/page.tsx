@@ -505,7 +505,7 @@ function ResultsContent() {
         {isPaid ? (
           <>
             {/* Full details for paid users */}
-            <DetailRow label="Annual permit fee" value={details.permitFeeAnnual ? `$${details.permitFeeAnnual}` : null} />
+            <DetailRow label="Annual permit fee" value={details.permitFeeAnnual ? `$${details.permitFeeAnnual}/year` : (details.permitRequired ? 'Contact local authority' : null)} />
             <DetailRow label="One-time permit fee" value={details.permitFeeOneTime ? `$${details.permitFeeOneTime}` : null} />
             <DetailRow label="License required" value={details.licenseRequired !== null ? (details.licenseRequired ? 'Yes' : 'No') : null} />
             <DetailRow label="Inspection required" value={details.inspectionRequired !== null ? (details.inspectionRequired ? 'Yes' : 'No') : null} />
